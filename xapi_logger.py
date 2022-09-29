@@ -1,0 +1,33 @@
+import logging
+import configparser
+from sys import platform
+from files_holder import read_config
+
+_log_format = "[%(asctime)s] %(levelname)s [%(filename)s %(name)s %(funcName)s (%(lineno)d)]: %(message)s"
+_log_format_journal = '[%(filename)s] %(message)s'
+
+def get_file_handler():
+    file_handler = logging.FileHandler("./log/xapi.log")
+    file_handler.setLevel(logging.DEBUG)
+    file_handler.setFormatter(logging.Formatter(_log_format))
+    return file_handler
+
+def get_stream_handler():
+    stream_handler = logging.StreamHandler()
+    stream_handler.setLevel(logging.INFO)
+    stream_handler.setFormatter(logging.Formatter(_log_format))
+    return stream_handler
+
+def get_logger(name):
+    config = read_config()
+    loglevel = config['logger']['level']
+    logger = logging.getLogger(name)
+    if(loglevel == '20'):
+        logger.setLevel(logging.INFO)
+    elif(loglevel == '10'):
+        logger.setLevel(logging.DEBUG)
+    else:
+        logger.setLevel(logging.NOTSET)
+    logger.addHandler(get_file_handler())
+    #logger.addHandler(get_stream_handler())
+    return logger
