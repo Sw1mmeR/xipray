@@ -56,16 +56,16 @@ def read_config(path: str = config_path):
         create_config(path_append_filename)
     config = configparser.ConfigParser()
     config.read(path_append_filename)
-    logger.debug(config['Shodan']['token'])
     return config
 
 def create_config(path: str = config_path):
+    is_sudo()
     logger.debug(f'Creating config {path}')
     
     config = configparser.ConfigParser()
     config.add_section("Shodan")
     config.add_section('logger')
-    config.set("Shodan", "token", "vIt7JM53a1WJGZ54uaqMtgrm4lXXq8RF")
-    config.set('logger', 'level', '10')
+    config.set("Shodan", "token", "")
+    config.set('logger', 'level', '20')
     with open(path, "w") as config_file:
         config.write(config_file)

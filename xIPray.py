@@ -25,6 +25,7 @@ def args_init():
     #parser.add_argument('-censys', type=str, help='Use censys search')
     parser.add_argument('search', type=str, help='String to search')
     parser.add_argument('-location', '-l', type =str, help='Host location') #action='store_true'
+    parser.add_argument('-filter', '-f', action='store_true', help='Use filters')
 def main():
     #welcome_message()
     args_init()
@@ -32,16 +33,10 @@ def main():
     set_os_paths()
     # После установки системных путей можно использовать логер
     config = read_config()
-    #print(config['Shodan']['token'])
-    '''
-    addr = None
-    try:
-        addr = ip_address(args.addr)
-    except ValueError as ex:
-        print(ex)
-    '''
-    if(hasattr(args, 'location')):
-        print(shodan_search.get_by_location(config['Shodan']['token'], args.search, args.location))
+    if(args.filter):
+        location_result = shodan_search.get_by_location(config['Shodan']['token'], args.search, args.location)
+        print()
+        print(location_result)
     else:
         shodan_search.search(config['Shodan']['token'], args.search)
 
