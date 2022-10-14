@@ -43,12 +43,13 @@ def set_os_paths():
         config_path = os.path.expanduser("~/Documents") + f'/{programm_name}/'
         log_path = os.path.expanduser("~/Documents") + f'/{programm_name}/'
     check_paths([config_path, log_path])
+    config_path = config_path + 'config.ini'
     __set_logger(log_path + f'{programm_name}.log')
 
 # Ниже можно использовать логер
 
 def read_config(path: str = config_path):
-    path_append_filename = config_path + 'config.ini'
+    path_append_filename = config_path
 
     logger.debug(f'Reading config {path_append_filename}')
     
@@ -58,14 +59,41 @@ def read_config(path: str = config_path):
     config.read(path_append_filename)
     return config
 
+def update_config(config):
+    set_os_paths()
+    path = config_path
+    logger.debug(f'Updating config {path}')
+    with open(path, "w") as config_file:
+        config.write(config_file)
+
 def create_config(path: str = config_path):
-    is_sudo()
-    logger.debug(f'Creating config {path}')
+    if platform == "linux" or platform == "linux2":
+        is_sudo()
+    config = None
+    logger.debug(f'Creating config {config_path}')
     
     config = configparser.ConfigParser()
+    config.add_section("XIP")
+    config.set("XIP", "Shodan", "True")
+    config.set("XIP", "ZoomEy", "False")
+    config.set("XIP", "Censys", "False")
+        
+        #config.set("XIP", "shodan-key", "None")
+        #config.set("XIP", "zoomey-key", "None")
+        #config.set("XIP", "censys-key", "None")
+
+        #config.set("XIP", "loglevel", "20")
+        #config.set("XIP", "logpath", log_path)
+
     config.add_section("Shodan")
+    config.set("Shodan", "token", "None")
+    config.add_section("ZoomEy")
+    config.set("ZoomEy", "token", "None")
+    config.add_section("Censys")
+    config.set("Censys", "token", "None")
+
     config.add_section('logger')
-    config.set("Shodan", "token", "")
     config.set('logger', 'level', '20')
+    config.set('logger', 'path', log_path)
     with open(path, "w") as config_file:
         config.write(config_file)

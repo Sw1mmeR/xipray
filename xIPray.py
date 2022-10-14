@@ -1,34 +1,88 @@
 #!/usr/bin/python3
 # -*- coding: utf-8 -*-
-
+import sys
+import time
 import configparser
 import argparse
 import logging
 from files_holder import *
-import shodan_search
 from ipaddress import ip_address
-from art import tprint
 from xapi import Xapi
 from xapi_logger import get_logger
+from xstdout import *
 
 parser = argparse.ArgumentParser(description='White Hat hack tool. Enjoy.')
+subparsers = parser.add_subparsers(help='Script commands for change arguments')
+set_subparser = subparsers.add_parser('set', help='Set parametr value')
 
 logger = get_logger(__name__)
 
-# Приветсвтенное сообщение/лого
-def welcome_message():
-    tprint('xIPray', font='big')
-    tprint("Hack your a$$", font='small')
+params_list = ['shodan', 'zoomey', 'censys', 'Shodan-Token', 'ZoomEy-Token', 'Censys-Token', 'loglevel', 'logpath']
 
 def args_init():
-    #parser.add_argument('-shodan', type=str, help='Use shodan search')
-    #parser.add_argument('-censys', type=str, help='Use censys search')
-    parser.add_argument('search', type=str, help='String to search')
-    parser.add_argument('-location', '-l', type =str, help='Host location') #action='store_true'
-    parser.add_argument('-filter', '-f', action='store_true', help='Use filters')
+    group = set_subparser.add_mutually_exclusive_group(required=True)
+    group.add_argument('-shodan', type=bool, help='Enable or disable Shodan search')
+    group.add_argument('-zoomey', type=bool, help='Enable or disable ZoomEy search')
+    group.add_argument('-censys', type=bool, help='Enable or disable Censys search')
+
+    group.add_argument('-shodanToken', help='Your\'s personal Shodan token')
+    group.add_argument('-zoomeyToken', help='Your\'s personal ZoomEy token')
+    group.add_argument('-censysToken', help='Your\'s personal Censys token')
+
+    group.add_argument('-loglevel', type=int, help='Log level. [10, 20, 30]')
+    group.add_argument('-logpath', type=str, help='Path to log file')
+
+
+
+    
+    parser.add_argument('-list', '-l', action='store_true', help='Show current configuration')
+    #parser.add_argument('set', help='Set parameter. Usage: -set [parameter] [value]')
+
+    #parser.add_argument('-location', '-l', type =str, help='Host location') #action='store_true'
+    #parser.add_argument('-filter', '-f', action='store_true', help='Use filters')
 def main():
-    #welcome_message()
     args_init()
+    args = parser.parse_args()
+    set_os_paths()
+    config = read_config()
+    execute = False
+    if(hasattr(args, 'shodan')):
+        config.set('XIP', 'Shodan', str(args.shodan))
+        update_config(config)
+    if(hasattr(args, 'zoomey')):
+        config.set('XIP', 'zoomey', str(args.zoomey))
+        update_config(config)
+    if(hasattr(args, 'censys')):
+        config.set('XIP', 'censys', str(args.censys))
+        update_config(config)
+    if(hasattr(args, 'shodanToken')):
+        config.set('Shodan', 'token', str(args.shodanToken))
+        update_config(config)
+    if(hasattr(args, 'zoomeyToken')):
+        config.set('ZoomEy', 'token', str(args.zoomeyToken))
+        update_config(config)
+    if(hasattr(args, 'censysToken')):
+        config.set('Censys', 'token', str(args.censysToken))
+        update_config(config)
+    if(hasattr(args, 'loglevel')):
+        config.set('logger', 'level', str(args.loglevel))
+        update_config(config)
+    if(hasattr(args, 'logpath')):
+        config.set('logger', 'path', str(args.logpath))
+        update_config(config)
+    if(args.list):
+        params = read_params(config)
+        print_params(parameters=params)
+        return     
+    if(execute):
+        try:
+            start_message([('shodan', False), ('key', 'sdfsag234jkg13lj5la=123kd/1')])
+            time.sleep(10)
+        except KeyboardInterrupt:
+            print_param("CTRL+C detected, terminating.", type="warning"),
+            sys.exit()
+    '''
+        args_init()
     args = parser.parse_args()
     set_os_paths()
     # После установки системных путей можно использовать логер
@@ -39,8 +93,7 @@ def main():
         print(location_result)
     else:
         shodan_search.search(config['Shodan']['token'], args.search)
-
-    #shodan_search.search(config['Shodan']['token'], search_str)
+    '''
 
 if (__name__ == '__main__'):
     main()

@@ -1,7 +1,7 @@
 import logging
 import configparser
 from sys import platform
-from files_holder import read_config
+from files_holder import read_config, set_os_paths
 
 _log_format = "[%(asctime)s] %(levelname)s [%(filename)s %(name)s %(funcName)s (%(lineno)d)]: %(message)s"
 _log_format_journal = '[%(filename)s] %(message)s'
@@ -19,6 +19,7 @@ def get_stream_handler():
     return stream_handler
 
 def get_logger(name):
+    set_os_paths()
     config = read_config()
     loglevel = config['logger']['level']
     logger = logging.getLogger(name)
