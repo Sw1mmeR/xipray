@@ -14,7 +14,7 @@ from xstdout import *
 parser = argparse.ArgumentParser(description='White Hat hack tool. Enjoy.')
 subparsers = parser.add_subparsers(help='Script commands for change arguments')
 set_subparser = subparsers.add_parser('set', help='Set parametr value')
-
+ip_subparser = subparsers.add_parser('ip', help='Target ip addr')
 logger = get_logger(__name__)
 
 params_list = ['shodan', 'zoomey', 'censys', 'Shodan-Token', 'ZoomEy-Token', 'Censys-Token', 'loglevel', 'logpath']
@@ -34,7 +34,7 @@ def args_init():
 
 
 
-    
+    ip_subparser.add_argument('-scan', '-s', action='store_true', help='Start scanning addr')
     parser.add_argument('-list', '-l', action='store_true', help='Show current configuration')
     #parser.add_argument('set', help='Set parameter. Usage: -set [parameter] [value]')
 
@@ -46,37 +46,43 @@ def main():
     set_os_paths()
     config = read_config()
     execute = False
-    if(hasattr(args, 'shodan')):
+    if(hasattr(args, 'shodan') and args.shodan):
         config.set('XIP', 'Shodan', str(args.shodan))
         update_config(config)
-    if(hasattr(args, 'zoomey')):
+    if(hasattr(args, 'zoomey') and args.zoomey):
         config.set('XIP', 'zoomey', str(args.zoomey))
         update_config(config)
-    if(hasattr(args, 'censys')):
+    if(hasattr(args, 'censys') and args.censys):
         config.set('XIP', 'censys', str(args.censys))
         update_config(config)
-    if(hasattr(args, 'shodanToken')):
+    if(hasattr(args, 'shodanToken') and args.shodanToken):
         config.set('Shodan', 'token', str(args.shodanToken))
         update_config(config)
-    if(hasattr(args, 'zoomeyToken')):
+    if(hasattr(args, 'zoomeyToken') and args.zoomeyToken):
         config.set('ZoomEy', 'token', str(args.zoomeyToken))
         update_config(config)
-    if(hasattr(args, 'censysToken')):
+    if(hasattr(args, 'censysToken') and args.censysToken):
         config.set('Censys', 'token', str(args.censysToken))
         update_config(config)
-    if(hasattr(args, 'loglevel')):
+    if(hasattr(args, 'loglevel') and args.loglevel):
         config.set('logger', 'level', str(args.loglevel))
         update_config(config)
-    if(hasattr(args, 'logpath')):
+    if(hasattr(args, 'logpath') and args.logpath):
         config.set('logger', 'path', str(args.logpath))
         update_config(config)
     if(args.list):
         params = read_params(config)
         print_params(parameters=params)
-        return     
+        return   
+    if(len(sys.argv) == 1):
+        parser.print_help()
+        sys.exit() 
+    if(args.scan):
+        execute = True
     if(execute):
         try:
-            start_message([('shodan', False), ('key', 'sdfsag234jkg13lj5la=123kd/1')])
+            params = read_params(config)
+            start_message(parameters=params)
             time.sleep(10)
         except KeyboardInterrupt:
             print_param("CTRL+C detected, terminating.", type="warning"),
