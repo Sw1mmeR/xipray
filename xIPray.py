@@ -77,7 +77,7 @@ def main():
     if(len(sys.argv) == 1):
         parser.print_help()
         sys.exit() 
-    if(args.scan):
+    if(hasattr(args, 'scan')):
         execute = True
     if(execute):
         try:
