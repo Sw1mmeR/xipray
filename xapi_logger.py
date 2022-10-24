@@ -6,8 +6,8 @@ from files_holder import read_config, set_os_paths
 _log_format = "[%(asctime)s] %(levelname)s [%(filename)s %(name)s %(funcName)s (%(lineno)d)]: %(message)s"
 _log_format_journal = '[%(filename)s] %(message)s'
 
-def get_file_handler():
-    file_handler = logging.FileHandler("./log/xapi.log")
+def get_file_handler(path = "./log/xapi.log"):
+    file_handler = logging.FileHandler(path)
     file_handler.setLevel(logging.DEBUG)
     file_handler.setFormatter(logging.Formatter(_log_format))
     return file_handler
@@ -23,6 +23,7 @@ def get_logger(name):
     config = read_config()
     loglevel = config['logger']['level']
     logger = logging.getLogger(name)
+    logpath = config['logger']['path']
     if(loglevel == '20'):
         logger.setLevel(logging.INFO)
     elif(loglevel == '10'):

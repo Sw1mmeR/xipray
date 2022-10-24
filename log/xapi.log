@@ -405,3 +405,107 @@
 [2022-09-29 18:43:44,672] INFO [shodan_search.py shodan_search get_by_location (74)]: 34.136.94.120
 [2022-09-29 18:43:44,672] DEBUG [shodan_search.py shodan_search get_by_location (73)]: US : US
 [2022-09-29 18:43:44,672] INFO [shodan_search.py shodan_search get_by_location (74)]: 34.136.94.120
+[2022-10-25 00:00:47,717] ERROR [xapi_validator.py xapi_validator check_ip (14)]: Address/netmask is invalid: 192.168.1.
+[2022-10-25 00:03:21,617] ERROR [xapi_validator.py xapi_validator check_ip (14)]: Address/netmask is invalid: 192.168.1.
+[2022-10-25 00:04:57,456] ERROR [xapi_validator.py xapi_validator check_ip (15)]: Address/netmask is invalid: 192.168.13
+[2022-10-25 00:04:59,941] ERROR [xapi_validator.py xapi_validator check_ip (15)]: Address/netmask is invalid: 192.168.1314123
+[2022-10-25 00:05:01,772] ERROR [xapi_validator.py xapi_validator check_ip (15)]: Address/netmask is invalid: 192.168.1314123!
+[2022-10-25 00:05:03,923] ERROR [xapi_validator.py xapi_validator check_ip (15)]: Address/netmask is invalid: 192.168.13
+[2022-10-25 00:05:05,007] ERROR [xapi_validator.py xapi_validator check_ip (15)]: Address/netmask is invalid: 192.168.13
+[2022-10-25 00:05:06,971] ERROR [xapi_validator.py xapi_validator check_ip (15)]: Address/netmask is invalid: 192.168.13
+[2022-10-25 00:11:05,930] ERROR [xapi_validator.py xapi_validator check_ip (16)]: Address/netmask is invalid: 192.168.13.
+[2022-10-25 00:11:08,637] ERROR [xapi_validator.py xapi_validator check_ip (16)]: Address/netmask is invalid: 192.168.13.
+[2022-10-25 00:11:14,430] ERROR [xapi_validator.py xapi_validator check_ip (16)]: Address/netmask is invalid: 192.168.13.
+[2022-10-25 00:13:06,417] ERROR [xapi_validator.py xapi_validator check_ip (16)]: Address/netmask is invalid: 192.168.13.
+[2022-10-25 00:37:28,622] INFO [shodan_api.py xapi.shodan_api __init__ (13)]: Init shodan search
+[2022-10-25 00:37:28,622] INFO [shodan_api.py xapi.shodan_api simple_search (16)]: Start simple shodan search
+[2022-10-25 00:37:29,254] ERROR [shodan_api.py xapi.shodan_api simple_search (23)]: Shodan search error
+[2022-10-25 00:38:11,991] ERROR [xapi_validator.py xapi_validator check_ip (16)]: Address/netmask is invalid: None
+[2022-10-25 00:40:04,713] INFO [shodan_api.py xapi.shodan_api __init__ (13)]: Init shodan search
+[2022-10-25 00:40:04,713] INFO [shodan_api.py xapi.shodan_api simple_search (16)]: Start simple shodan search
+[2022-10-25 00:40:05,194] ERROR [shodan_api.py xapi.shodan_api simple_search (23)]: Shodan search error
+[2022-10-25 00:40:26,301] INFO [shodan_api.py xapi.shodan_api __init__ (13)]: Init shodan search
+[2022-10-25 00:40:26,302] INFO [shodan_api.py xapi.shodan_api simple_search (16)]: Start simple shodan search
+[2022-10-25 00:40:27,236] ERROR [shodan_api.py xapi.shodan_api simple_search (23)]: Shodan search error
+[2022-10-25 00:41:37,737] INFO [shodan_api.py xapi.shodan_api __init__ (13)]: Init shodan search
+[2022-10-25 00:41:49,164] INFO [shodan_api.py xapi.shodan_api __init__ (13)]: Init shodan search
+[2022-10-25 00:41:49,164] INFO [shodan_api.py xapi.shodan_api host_search (16)]: Start host shodan search
+[2022-10-25 00:41:49,544] ERROR [shodan_api.py xapi.shodan_api host_search (23)]: Shodan search error
+[2022-10-25 00:42:13,136] INFO [shodan_api.py xapi.shodan_api __init__ (13)]: Init shodan search
+[2022-10-25 00:42:13,136] INFO [shodan_api.py xapi.shodan_api host_search (16)]: Start host shodan search
+[2022-10-25 00:42:28,321] ERROR [shodan_api.py xapi.shodan_api host_search (23)]: Shodan search error
+[2022-10-25 00:43:39,301] INFO [shodan_api.py xapi.shodan_api __init__ (13)]: Init shodan search
+[2022-10-25 00:43:39,301] INFO [shodan_api.py xapi.shodan_api host_search (16)]: Start host shodan search
+[2022-10-25 00:43:39,736] ERROR [shodan_api.py xapi.shodan_api host_search (23)]: Shodan search error
+[2022-10-25 00:43:39,737] ERROR [shodan_api.py xapi.shodan_api host_search (24)]: write() argument must be str, not dict
+[2022-10-25 00:44:34,204] INFO [shodan_api.py xapi.shodan_api __init__ (13)]: Init shodan search
+[2022-10-25 00:44:34,204] INFO [shodan_api.py xapi.shodan_api host_search (16)]: Start host shodan search
+[2022-10-25 00:46:23,643] INFO [shodan_api.py xapi.shodan_api __init__ (14)]: Init shodan search
+[2022-10-25 00:46:23,643] INFO [shodan_api.py xapi.shodan_api host_search (17)]: Start host shodan search
+[2022-10-25 00:47:28,815] INFO [shodan_api.py xapi.shodan_api __init__ (14)]: Init shodan search
+[2022-10-25 00:47:28,815] INFO [shodan_api.py xapi.shodan_api host_search (17)]: Start host shodan search
+[2022-10-25 00:47:37,369] INFO [shodan_api.py xapi.shodan_api __init__ (14)]: Init shodan search
+[2022-10-25 00:47:37,369] INFO [shodan_api.py xapi.shodan_api host_search (17)]: Start host shodan search
+[2022-10-25 00:48:39,188] INFO [shodan_api.py xapi.shodan_api __init__ (14)]: Init shodan search
+[2022-10-25 00:48:39,188] INFO [shodan_api.py xapi.shodan_api host_search (17)]: Start host shodan search
+[2022-10-25 00:49:40,350] INFO [shodan_api.py xapi.shodan_api __init__ (14)]: Init shodan search
+[2022-10-25 00:49:40,350] INFO [shodan_api.py xapi.shodan_api host_search (17)]: Start host shodan search
+[2022-10-25 00:59:17,121] INFO [shodan_api.py xapi.shodan_api __init__ (14)]: Init shodan search
+[2022-10-25 00:59:17,122] INFO [shodan_api.py xapi.shodan_api host_search (17)]: Start host shodan search
+[2022-10-25 00:59:20,442] ERROR [shodan_api.py xapi.shodan_api host_search (31)]: Shodan search error
+[2022-10-25 00:59:20,442] ERROR [shodan_api.py xapi.shodan_api host_search (32)]: sequence item 0: expected str instance, int found
+[2022-10-25 01:03:46,739] ERROR [xapi_validator.py xapi_validator check_ip (19)]: Address/netmask is invalid: 52.17.1.1\
+[2022-10-25 01:03:48,487] INFO [shodan_api.py xapi.shodan_api __init__ (14)]: Init shodan search
+[2022-10-25 01:03:48,487] INFO [shodan_api.py xapi.shodan_api host_search (17)]: Start host shodan search
+[2022-10-25 01:05:02,629] INFO [shodan_api.py xapi.shodan_api __init__ (14)]: Init shodan search
+[2022-10-25 01:05:02,629] INFO [shodan_api.py xapi.shodan_api host_search (17)]: Start host shodan search
+[2022-10-25 01:06:07,793] INFO [shodan_api.py xapi.shodan_api __init__ (14)]: Init shodan search
+[2022-10-25 01:06:07,793] INFO [shodan_api.py xapi.shodan_api host_search (17)]: Start host shodan search
+[2022-10-25 01:06:50,103] INFO [shodan_api.py xapi.shodan_api __init__ (14)]: Init shodan search
+[2022-10-25 01:06:50,104] INFO [shodan_api.py xapi.shodan_api host_search (17)]: Start host shodan search
+[2022-10-25 01:11:36,444] INFO [shodan_api.py xapi.shodan_api __init__ (14)]: Init shodan search
+[2022-10-25 01:11:36,444] INFO [shodan_api.py xapi.shodan_api host_search (17)]: Start host shodan search
+[2022-10-25 01:12:04,764] INFO [shodan_api.py xapi.shodan_api __init__ (14)]: Init shodan search
+[2022-10-25 01:12:04,765] INFO [shodan_api.py xapi.shodan_api host_search (17)]: Start host shodan search
+[2022-10-25 01:12:14,375] INFO [shodan_api.py xapi.shodan_api __init__ (14)]: Init shodan search
+[2022-10-25 01:12:14,375] INFO [shodan_api.py xapi.shodan_api host_search (17)]: Start host shodan search
+[2022-10-25 01:12:23,734] INFO [shodan_api.py xapi.shodan_api __init__ (14)]: Init shodan search
+[2022-10-25 01:12:23,734] INFO [shodan_api.py xapi.shodan_api host_search (17)]: Start host shodan search
+[2022-10-25 01:12:36,318] INFO [shodan_api.py xapi.shodan_api __init__ (14)]: Init shodan search
+[2022-10-25 01:12:36,318] INFO [shodan_api.py xapi.shodan_api host_search (17)]: Start host shodan search
+[2022-10-25 01:12:48,748] INFO [shodan_api.py xapi.shodan_api __init__ (14)]: Init shodan search
+[2022-10-25 01:12:48,748] INFO [shodan_api.py xapi.shodan_api host_search (17)]: Start host shodan search
+[2022-10-25 01:13:00,656] INFO [shodan_api.py xapi.shodan_api __init__ (14)]: Init shodan search
+[2022-10-25 01:13:00,656] INFO [shodan_api.py xapi.shodan_api host_search (17)]: Start host shodan search
+[2022-10-25 01:13:06,504] INFO [shodan_api.py xapi.shodan_api __init__ (14)]: Init shodan search
+[2022-10-25 01:13:06,505] INFO [shodan_api.py xapi.shodan_api host_search (17)]: Start host shodan search
+[2022-10-25 01:13:27,639] INFO [shodan_api.py xapi.shodan_api __init__ (14)]: Init shodan search
+[2022-10-25 01:13:27,639] INFO [shodan_api.py xapi.shodan_api host_search (17)]: Start host shodan search
+[2022-10-25 01:13:36,883] INFO [shodan_api.py xapi.shodan_api __init__ (14)]: Init shodan search
+[2022-10-25 01:13:36,883] INFO [shodan_api.py xapi.shodan_api host_search (17)]: Start host shodan search
+[2022-10-25 01:13:58,495] INFO [shodan_api.py xapi.shodan_api __init__ (14)]: Init shodan search
+[2022-10-25 01:13:58,495] INFO [shodan_api.py xapi.shodan_api host_search (17)]: Start host shodan search
+[2022-10-25 01:14:11,568] INFO [shodan_api.py xapi.shodan_api __init__ (14)]: Init shodan search
+[2022-10-25 01:14:11,568] INFO [shodan_api.py xapi.shodan_api host_search (17)]: Start host shodan search
+[2022-10-25 01:16:15,533] INFO [shodan_api.py xapi.shodan_api __init__ (14)]: Init shodan search
+[2022-10-25 01:16:15,533] INFO [shodan_api.py xapi.shodan_api host_search (17)]: Start host shodan search
+[2022-10-25 01:16:21,865] INFO [shodan_api.py xapi.shodan_api __init__ (14)]: Init shodan search
+[2022-10-25 01:16:21,865] INFO [shodan_api.py xapi.shodan_api host_search (17)]: Start host shodan search
+[2022-10-25 01:16:45,091] INFO [shodan_api.py xapi.shodan_api __init__ (14)]: Init shodan search
+[2022-10-25 01:16:45,091] INFO [shodan_api.py xapi.shodan_api host_search (17)]: Start host shodan search
+[2022-10-25 01:16:49,281] ERROR [shodan_api.py xapi.shodan_api host_search (31)]: No information available for that IP.
+[2022-10-25 01:16:56,921] INFO [shodan_api.py xapi.shodan_api __init__ (14)]: Init shodan search
+[2022-10-25 01:16:56,921] INFO [shodan_api.py xapi.shodan_api host_search (17)]: Start host shodan search
+[2022-10-25 01:18:38,186] INFO [shodan_api.py xapi.shodan_api __init__ (14)]: Init shodan search
+[2022-10-25 01:18:38,186] INFO [shodan_api.py xapi.shodan_api host_search (17)]: Start host shodan search
+[2022-10-25 01:22:42,898] INFO [shodan_api.py xapi.shodan_api __init__ (14)]: Init shodan search
+[2022-10-25 01:22:42,898] INFO [shodan_api.py xapi.shodan_api host_search (17)]: Start host shodan search
+[2022-10-25 01:23:58,516] INFO [shodan_api.py xapi.shodan_api __init__ (14)]: Init shodan search
+[2022-10-25 01:23:58,517] INFO [shodan_api.py xapi.shodan_api host_search (17)]: Start host shodan search
+[2022-10-25 01:23:59,039] ERROR [shodan_api.py xapi.shodan_api host_search (31)]: No information available for that IP.
+[2022-10-25 01:24:04,947] ERROR [xapi_validator.py xapi_validator check_ip (19)]: Address/netmask is invalid: 8.11.5.
+[2022-10-25 01:24:11,421] INFO [shodan_api.py xapi.shodan_api __init__ (14)]: Init shodan search
+[2022-10-25 01:24:11,421] INFO [shodan_api.py xapi.shodan_api host_search (17)]: Start host shodan search
+[2022-10-25 01:24:13,497] ERROR [shodan_api.py xapi.shodan_api host_search (31)]: No information available for that IP.
+[2022-10-25 01:24:28,716] INFO [shodan_api.py xapi.shodan_api __init__ (14)]: Init shodan search
+[2022-10-25 01:24:28,717] INFO [shodan_api.py xapi.shodan_api host_search (17)]: Start host shodan search

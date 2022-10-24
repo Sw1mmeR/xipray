@@ -7,14 +7,15 @@ import argparse
 import logging
 from files_holder import *
 from ipaddress import ip_address
-from xapi import Xapi
 from xapi_logger import get_logger
 from xstdout import *
+from xapi.shodan_api import Shodan_api
+from xapi_validator import *
 
 parser = argparse.ArgumentParser(description='White Hat hack tool. Enjoy.')
 subparsers = parser.add_subparsers(help='Script commands for change arguments')
 set_subparser = subparsers.add_parser('set', help='Set parametr value')
-ip_subparser = subparsers.add_parser('ip', help='Target ip addr')
+#ip_subparser = subparsers.add_parser('ip', help='Target ip addr')
 logger = get_logger(__name__)
 
 params_list = ['shodan', 'zoomey', 'censys', 'Shodan-Token', 'ZoomEy-Token', 'Censys-Token', 'loglevel', 'logpath']
@@ -33,8 +34,8 @@ def args_init():
     group.add_argument('-logpath', type=str, help='Path to log file')
 
 
-
-    ip_subparser.add_argument('-scan', '-s', action='store_true', help='Start scanning addr')
+    parser.add_argument('-ip', type=str, help='IP addr to search')
+    #ip_subparser.add_argument('-scan', '-s', action='store_true', help='Start scanning addr')
     parser.add_argument('-list', '-l', action='store_true', help='Show current configuration')
     #parser.add_argument('set', help='Set parameter. Usage: -set [parameter] [value]')
 
@@ -77,15 +78,18 @@ def main():
     if(len(sys.argv) == 1):
         parser.print_help()
         sys.exit() 
-    if(hasattr(args, 'scan')):
-        execute = True
+    if(hasattr(args, 'ip')):
+        if(check_ip(args.ip)):
+            execute = True
     if(execute):
         try:
             params = read_params(config)
             start_message(parameters=params)
-            time.sleep(10)
+            shodan_api = Shodan_api()
+            shodan_api.host_search(args.ip)
+            #time.sleep(10)
         except KeyboardInterrupt:
-            print_param("CTRL+C detected, terminating.", type="warning"),
+            print_param("CTRL+C detected, terminating.", type="error"),
             sys.exit()
     '''
         args_init()

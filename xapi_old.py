@@ -17,6 +17,7 @@ class Xapi():
         'shodan' : 'https://api.shodan.io',
         'censys' : 'https://search.censys.io/api'
         }
+        
         self._actions = {
             'host' : '/shodan/host/'
         }
