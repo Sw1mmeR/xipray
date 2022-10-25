@@ -2,22 +2,32 @@ import ipaddress
 from webbrowser import get
 from xapi_logger import get_logger
 from xstdout import *
+from files_holder import check_path
 
 logger = get_logger(__name__)
 
-def check_ip(addr):
+def check_ip(addr, is_print=True):
     if(addr is None):
         logger.debug('Entered addr is None')
-        return
+        return False
     try:
         ip = ipaddress.ip_address(addr)
-        print_param(f'{ip} is a correct IPv{ip.version} address {addr}', type='warning')
+        if(is_print):
+            print_param(f'{ip} is a correct IPv{ip.version} address {addr}', type='warning')
         logger.debug(f'{ip} is a correct IP {ip.version} address')
         return True
     except ValueError:
-        print_param(f'Address/netmask is invalid: {addr}', type='error')
+        if(is_print):
+            print_param(f'Address/netmask is invalid: {addr}', type='error')
         logger.error(f'Address/netmask is invalid: {addr}')
         return False
     except:
-        print('[?] Usage : -ip {addr}')
+        if(is_print):
+            print('[?] Usage : -ip {addr}')
         return False
+
+def check_ip_or_path(value, is_print=False):
+    is_ip = check_ip(value, is_print=is_print)
+    is_path = check_path(value, is_print=is_print)
+    logger.info(f'Checking input ip or path. Is ip: {is_ip}. Is path: {is_path}')
+    return is_ip or is_path

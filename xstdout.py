@@ -1,4 +1,5 @@
 import datetime
+import sys
 import time
 #from columnar import columnar
 
@@ -15,23 +16,21 @@ def start_message(parameters: list):
     print('=' * line_count)
 
 
-def print_param(name, value = None, type = "info"):
+def print_param(name, value = None, type = "info", file=sys.stdout):
     #for row in data:
         #print "".join(word.ljust(col_width) for word in row)
     if(type == 'info'):
-        print('[+] {0:20}:{1}'.format(name, value))
+        print('[+] {0:20}:{1}'.format(name, value), file=file)
     elif(type == 'error'):
-        print(f'\033[31m[!] {name}\033[0m')
+        print(f'\033[31m[!] {name}\033[0m', file=file)
     elif(type == 'warning'):
-        print(f'\033[32m[!] {name}\033[0m')
+        print(f'\033[32m[!] {name}\033[0m', file=file)
 
-def print_params(parameters: list):
-    print('=' * line_count)
+def print_params(parameters: list, file=sys.stdout):
+    print('=' * line_count, file=file)
     for param in parameters:
-        print_param(param[0], param[1])
-    print('=' * line_count)
-
-
+        print_param(param[0], param[1], file=file)
+    print('=' * line_count, file=file)
 
 def read_params(config) -> list:
     params = [
@@ -54,11 +53,10 @@ def print_banner(ip, country, city, count = None):
     print(f'{country}, {city}')
     print('-' * line_count)
 
-def print_host_banner(addr, params: list):
+def print_host_banner(addr, params: list, file=sys.stdout):
     new_line_count = int((line_count - len(addr) - 1) / 2)
-    
-    print()
+    print(file=file)
     header = '{0}|{1}|{2}'.format('-' * new_line_count, addr, '-' * new_line_count)
-    print(header)
-    print_params(params)
-    print()
+    print(header, file=file)
+    print_params(params, file=file)
+    print(file=file)

@@ -47,6 +47,8 @@ def main():
     set_os_paths()
     config = read_config()
     execute = False
+    ip_search = False
+    ip_file_search = False
     if(hasattr(args, 'shodan') and args.shodan):
         config.set('XIP', 'Shodan', str(args.shodan))
         update_config(config)
@@ -79,14 +81,17 @@ def main():
         parser.print_help()
         sys.exit() 
     if(hasattr(args, 'ip')):
-        if(check_ip(args.ip)):
+        if(check_ip_or_path(args.ip)):
             execute = True
     if(execute):
         try:
             params = read_params(config)
             start_message(parameters=params)
             shodan_api = Shodan_api()
-            shodan_api.host_search(args.ip)
+            if(check_ip(args.ip)):
+                shodan_api.host_search(args.ip)
+            elif(check_path(args.ip)):
+                shodan_api.multi_host_search(args.ip)
             #time.sleep(10)
         except KeyboardInterrupt:
             print_param("CTRL+C detected, terminating.", type="error"),

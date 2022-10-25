@@ -3,6 +3,7 @@ import configparser
 import logging
 from sys import platform
 from subprocess import check_output
+from xstdout import print_param
 
 programm_name = 'xIPray'
 
@@ -14,6 +15,23 @@ def check_paths(paths: list):
     for path in paths:
         if not os.path.isdir(path):
             os.mkdir(path)
+
+def check_path(path, is_print=True):
+    if(os.path.isdir(path)):
+        if(is_print):
+            print_param(f'{path} is a directory' ,type="error")
+        logger.error(f'{path} is a directory')
+        return False
+    elif(os.path.isfile(path)):
+        if(is_print):
+            print_param(f'{path} is exist', type='warning')
+        logger.info(f'{path} is exist')
+        return True
+    else:
+        if(is_print):
+            print_param(f'Invalid input', type='error')
+        logger.error(f'Invalid input')
+        return False
 
 def is_sudo():
     username = check_output(['whoami']).decode().strip()
@@ -95,5 +113,6 @@ def create_config(path: str = config_path):
     config.add_section('logger')
     config.set('logger', 'level', '20')
     config.set('logger', 'path', log_path)
+    
     with open(path, "w") as config_file:
         config.write(config_file)
