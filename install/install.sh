@@ -1,3 +1,4 @@
+#!/bin/bash
 pip3 install requests
 pip3 install configparser
 pip3 install logging
