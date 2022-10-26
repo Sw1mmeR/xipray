@@ -5,12 +5,12 @@ import time
 import configparser
 import argparse
 import logging
-from files_holder import *
 from ipaddress import ip_address
-from xapi_logger import get_logger
-from xstdout import *
-from xapi.shodan_api import Shodan_api
-from xapi_validator import *
+from xipraylib.xapi_logger import get_logger
+from xipraylib.files_holder import *
+from xipraylib.xstdout import *
+from xipraylib.xapi.shodan_api import Shodan_api
+from xipraylib.xapi_validator import *
 
 parser = argparse.ArgumentParser(description='White Hat hack tool. Enjoy.')
 subparsers = parser.add_subparsers(help='Script commands for change arguments')
@@ -80,21 +80,23 @@ def main():
     if(len(sys.argv) == 1):
         parser.print_help()
         sys.exit() 
-    if(hasattr(args, 'ip')):
-        if(check_ip_or_path(args.ip)):
+    if(hasattr(args, 'ip') and args.ip):
+        if(check_ip(args.ip)):
+            execute = True
+        elif(check_path(args.ip)):
             execute = True
     if(execute):
         try:
             params = read_params(config)
             start_message(parameters=params)
             shodan_api = Shodan_api()
-            if(check_ip(args.ip)):
+            if(check_ip(args.ip, is_print=False)):
                 shodan_api.host_search(args.ip)
-            elif(check_path(args.ip)):
+            elif(check_path(args.ip, is_print=False)):
                 shodan_api.multi_host_search(args.ip)
-            #time.sleep(10)
         except KeyboardInterrupt:
-            print_param("CTRL+C detected, terminating.", type="error"),
+            print_param("CTRL+C detected, terminating.", type="error")
+            logger.info('CTRL+C detected')
             sys.exit()
     '''
         args_init()

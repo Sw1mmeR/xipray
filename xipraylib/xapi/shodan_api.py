@@ -1,11 +1,11 @@
 import imp
 import json
 import os
-from files_holder import check_path, read_config
+from xipraylib.files_holder import check_path, read_config
 import shodan
-from xstdout import *
-from xapi_logger import get_logger
-from xapi_validator import check_ip
+from xipraylib.xstdout import *
+from xipraylib.xapi_logger import get_logger
+from xipraylib.xapi_validator import check_ip
 
 logger = get_logger(__name__)
 

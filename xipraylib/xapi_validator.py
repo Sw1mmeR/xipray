@@ -1,8 +1,8 @@
 import ipaddress
 from webbrowser import get
-from xapi_logger import get_logger
-from xstdout import *
-from files_holder import check_path
+from xipraylib.xapi_logger import get_logger
+from xipraylib.xstdout import *
+from xipraylib.files_holder import check_path
 
 logger = get_logger(__name__)
 

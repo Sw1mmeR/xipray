@@ -3,7 +3,7 @@ import configparser
 import logging
 from sys import platform
 from subprocess import check_output
-from xstdout import print_param
+from xipraylib.xstdout import print_param
 
 programm_name = 'xipray'
 

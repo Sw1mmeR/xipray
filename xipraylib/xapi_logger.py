@@ -1,7 +1,7 @@
 import logging
 import configparser
 from sys import platform
-from files_holder import read_config, set_os_paths
+from xipraylib.files_holder import read_config, set_os_paths
 
 _log_format = "[%(asctime)s] %(levelname)s [%(filename)s %(name)s %(funcName)s (%(lineno)d)]: %(message)s"
 _log_format_journal = '[%(filename)s] %(message)s'
