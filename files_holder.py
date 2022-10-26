@@ -5,7 +5,7 @@ from sys import platform
 from subprocess import check_output
 from xstdout import print_param
 
-programm_name = 'xIPray'
+programm_name = 'xipray'
 
 config_path = '/'
 log_path = '/'
