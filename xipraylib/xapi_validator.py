@@ -13,12 +13,12 @@ def check_ip(addr, is_print=True):
     try:
         ip = ipaddress.ip_address(addr)
         if(is_print):
-            print_param(f'{ip} is a correct IPv{ip.version} address {addr}', type='warning')
+            print_param(f'{ip} is a correct IPv{ip.version} address {addr}', mode='warning')
         logger.debug(f'{ip} is a correct IP {ip.version} address')
         return True
     except ValueError:
         if(is_print):
-            print_param(f'Address/netmask is invalid: {addr}', type='error')
+            print_param(f'Address/netmask is invalid: {addr}', mode='error')
         logger.error(f'Address/netmask is invalid: {addr}')
         return False
     except:

@@ -44,10 +44,10 @@ class Shodan_api:
                     ], file=file)
         except shodan.exception.APIError as ex:
             logger.error(ex)
-            print_param(ex, type='error')
+            print_param(ex, mode='error')
         except Exception as ex:
             logger.error('Error in shodan search module')
-            print_param(ex, type='error')
+            print_param(ex, mode='error')
 
     def multi_host_search(self, path):
         with open(path) as file:
@@ -56,7 +56,7 @@ class Shodan_api:
                 if(check_ip(clean_addr)):
                     self.host_search(clean_addr)
                 else:
-                    print_param(f'Skip {clean_addr}', type='error')
+                    print_param(f'Skip {clean_addr}', mode='error')
 
     def search_vulnerable_cam_router(self):
         res = self.api.search(query='WIRELESS+INTERNET+CAMERA city:Moscow')

@@ -16,14 +16,17 @@ def start_message(parameters: list):
     print('=' * line_count)
 
 
-def print_param(name, value = None, type = "info", file=sys.stdout):
+def print_param(name, value = None, mode = "info", file=sys.stdout):
     #for row in data:
         #print "".join(word.ljust(col_width) for word in row)
-    if(type == 'info'):
-        print('[+] {0:20}:{1}'.format(name, value), file=file)
-    elif(type == 'error'):
+    if(mode == 'info' and value is not None):
+        if(type(value) == list and file == sys.stdout):
+            print('[+] {0:20}:{1}'.format(name, value[0:8]))
+        else:
+            print('[+] {0:20}:{1}'.format(name, value), file=file)
+    elif(mode == 'error'):
         print(f'\033[31m[!] {name}\033[0m', file=file)
-    elif(type == 'warning'):
+    elif(mode == 'warning'):
         print(f'\033[32m[!] {name}\033[0m', file=file)
 
 def print_params(parameters: list, file=sys.stdout):

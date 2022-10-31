@@ -41,3 +41,47 @@
 [2022-10-26 11:58:47,315] ERROR [xapi_validator.py xipraylib.xapi_validator check_ip (22)]: Address/netmask is invalid: 
 [2022-10-26 11:58:47,315] ERROR [xapi_validator.py xipraylib.xapi_validator check_ip (22)]: Address/netmask is invalid: test2
 [2022-10-26 11:58:47,315] INFO [shodan_api.py xipraylib.xapi.shodan_api host_search (23)]: Start host shodan search
+[2022-10-28 10:49:07,720] INFO [shodan_api.py xipraylib.xapi.shodan_api __init__ (17)]: Init shodan search
+[2022-10-28 10:49:07,737] INFO [shodan_api.py xipraylib.xapi.shodan_api host_search (23)]: Start host shodan search
+[2022-10-28 10:49:24,000] ERROR [xapi_validator.py xipraylib.xapi_validator check_ip (22)]: Address/netmask is invalid: 8r
+[2022-10-31 11:12:40,627] INFO [shodan_api.py xipraylib.xapi.shodan_api __init__ (17)]: Init shodan search
+[2022-10-31 11:12:40,629] INFO [shodan_api.py xipraylib.xapi.shodan_api host_search (23)]: Start host shodan search
+[2022-10-31 11:14:34,293] ERROR [xapi_validator.py xipraylib.xapi_validator check_ip (22)]: Address/netmask is invalid: addr.txt
+[2022-10-31 11:14:34,301] INFO [shodan_api.py xipraylib.xapi.shodan_api __init__ (17)]: Init shodan search
+[2022-10-31 11:14:34,302] ERROR [xapi_validator.py xipraylib.xapi_validator check_ip (22)]: Address/netmask is invalid: addr.txt
+[2022-10-31 11:14:34,303] INFO [shodan_api.py xipraylib.xapi.shodan_api host_search (23)]: Start host shodan search
+[2022-10-31 11:14:35,104] ERROR [shodan_api.py xipraylib.xapi.shodan_api host_search (46)]: No information available for that IP.
+[2022-10-31 11:14:35,105] INFO [shodan_api.py xipraylib.xapi.shodan_api host_search (23)]: Start host shodan search
+[2022-10-31 11:14:36,456] ERROR [shodan_api.py xipraylib.xapi.shodan_api host_search (46)]: No information available for that IP.
+[2022-10-31 11:14:36,457] INFO [shodan_api.py xipraylib.xapi.shodan_api host_search (23)]: Start host shodan search
+[2022-10-31 11:14:38,735] INFO [shodan_api.py xipraylib.xapi.shodan_api host_search (23)]: Start host shodan search
+[2022-10-31 11:14:42,013] INFO [shodan_api.py xipraylib.xapi.shodan_api host_search (23)]: Start host shodan search
+[2022-10-31 11:14:43,978] ERROR [shodan_api.py xipraylib.xapi.shodan_api host_search (46)]: Invalid IP
+[2022-10-31 11:14:43,980] ERROR [xapi_validator.py xipraylib.xapi_validator check_ip (22)]: Address/netmask is invalid: test
+[2022-10-31 11:14:43,981] ERROR [xapi_validator.py xipraylib.xapi_validator check_ip (22)]: Address/netmask is invalid: c://
+[2022-10-31 11:14:43,982] INFO [shodan_api.py xipraylib.xapi.shodan_api host_search (23)]: Start host shodan search
+[2022-10-31 11:14:45,650] ERROR [shodan_api.py xipraylib.xapi.shodan_api host_search (46)]: No information available for that IP.
+[2022-10-31 11:14:45,651] INFO [shodan_api.py xipraylib.xapi.shodan_api host_search (23)]: Start host shodan search
+[2022-10-31 11:14:46,965] ERROR [shodan_api.py xipraylib.xapi.shodan_api host_search (46)]: No information available for that IP.
+[2022-10-31 11:14:46,967] INFO [shodan_api.py xipraylib.xapi.shodan_api host_search (23)]: Start host shodan search
+[2022-10-31 11:14:48,307] ERROR [shodan_api.py xipraylib.xapi.shodan_api host_search (46)]: No information available for that IP.
+[2022-10-31 11:14:48,309] ERROR [xapi_validator.py xipraylib.xapi_validator check_ip (22)]: Address/netmask is invalid: #185.126.239.251
+[2022-10-31 11:14:48,315] ERROR [xapi_validator.py xipraylib.xapi_validator check_ip (22)]: Address/netmask is invalid: 
+[2022-10-31 11:14:48,316] ERROR [xapi_validator.py xipraylib.xapi_validator check_ip (22)]: Address/netmask is invalid: test2
+[2022-10-31 11:14:48,317] INFO [shodan_api.py xipraylib.xapi.shodan_api host_search (23)]: Start host shodan search
+[2022-10-31 11:51:08,700] INFO [shodan_api.py xipraylib.xapi.shodan_api __init__ (17)]: Init shodan search
+[2022-10-31 11:51:08,701] INFO [shodan_api.py xipraylib.xapi.shodan_api host_search (23)]: Start host shodan search
+[2022-10-31 12:00:11,828] INFO [shodan_api.py xipraylib.xapi.shodan_api __init__ (17)]: Init shodan search
+[2022-10-31 12:00:11,828] INFO [shodan_api.py xipraylib.xapi.shodan_api host_search (23)]: Start host shodan search
+[2022-10-31 12:02:00,373] INFO [shodan_api.py xipraylib.xapi.shodan_api __init__ (17)]: Init shodan search
+[2022-10-31 12:02:00,375] INFO [shodan_api.py xipraylib.xapi.shodan_api host_search (23)]: Start host shodan search
+[2022-10-31 12:05:05,385] INFO [shodan_api.py xipraylib.xapi.shodan_api __init__ (17)]: Init shodan search
+[2022-10-31 12:05:05,385] INFO [shodan_api.py xipraylib.xapi.shodan_api host_search (23)]: Start host shodan search
+[2022-10-31 12:06:00,392] INFO [shodan_api.py xipraylib.xapi.shodan_api __init__ (17)]: Init shodan search
+[2022-10-31 12:06:00,392] INFO [shodan_api.py xipraylib.xapi.shodan_api host_search (23)]: Start host shodan search
+[2022-10-31 12:07:11,003] INFO [shodan_api.py xipraylib.xapi.shodan_api __init__ (17)]: Init shodan search
+[2022-10-31 12:07:11,004] INFO [shodan_api.py xipraylib.xapi.shodan_api host_search (23)]: Start host shodan search
+[2022-10-31 12:19:05,021] INFO [shodan_api.py xipraylib.xapi.shodan_api __init__ (17)]: Init shodan search
+[2022-10-31 12:19:05,022] INFO [shodan_api.py xipraylib.xapi.shodan_api host_search (23)]: Start host shodan search
+[2022-10-31 12:20:09,444] INFO [shodan_api.py xipraylib.xapi.shodan_api __init__ (17)]: Init shodan search
+[2022-10-31 12:20:09,445] INFO [shodan_api.py xipraylib.xapi.shodan_api host_search (23)]: Start host shodan search

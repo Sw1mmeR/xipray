@@ -19,17 +19,17 @@ def check_paths(paths: list):
 def check_path(path, is_print=True):
     if(os.path.isdir(path)):
         if(is_print):
-            print_param(f'{path} is a directory' ,type="error")
+            print_param(f'{path} is a directory' ,mode="error")
         logger.error(f'{path} is a directory')
         return False
     elif(os.path.isfile(path)):
         if(is_print):
-            print_param(f'{path} is exist', type='warning')
+            print_param(f'{path} is exist', mode='warning')
         logger.info(f'{path} is exist')
         return True
     else:
         if(is_print):
-            print_param(f'Invalid input', type='error')
+            print_param(f'Invalid input', mode='error')
         logger.error(f'Invalid input')
         return False
 
