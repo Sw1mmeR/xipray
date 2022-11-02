@@ -28,7 +28,7 @@ def print_param(name, value = None, mode='info', file=sys.stdout, max_list_size=
         print(f'\033[31m[!] {name}\033[0m', file=file)
     elif(mode == 'warning'):
         print(f'\033[32m[!] {name}\033[0m', file=file)
-    else:
+    elif(value is not None):
         raise ValueError(f'Wrong mode value: {mode}. You can use info/error/warning')
 
 def print_params(parameters: list, file=sys.stdout):
@@ -40,10 +40,8 @@ def print_params(parameters: list, file=sys.stdout):
 def read_params(config) -> list:
     params = [
         ('Shodan', config['XIP']['Shodan']),
-        ('ZoomEy', config['XIP']['ZoomEy']),
         ('Censys', config['XIP']['Censys']),
         ('Shodan-Token', config['Shodan']['token']),
-        ('ZoomEy-Token', config['ZoomEy']['token']),
         ('Censys-Token', config['Censys']['token']),
         ('Log level', config['logger']['level']),
         ('Log path', config['logger']['path'])

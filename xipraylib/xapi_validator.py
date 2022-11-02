@@ -31,3 +31,12 @@ def check_ip_or_path(value, is_print=False):
     is_path = check_path(value, is_print=is_print)
     logger.info(f'Checking input ip or path. Is ip: {is_ip}. Is path: {is_path}')
     return is_ip or is_path
+
+def check_boolean(value: str):
+    if(value == 'true' or value == 'True'):
+        return True
+    elif(value == 'false' or value == 'False'):
+        return False
+    else:
+        raise ValueError(f'Incorrect value {value}. Set only boolean value!')
+

@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/python3.9
 # -*- coding: utf-8 -*-
 
 import sys
@@ -23,9 +23,9 @@ params_list = ['shodan', 'zoomey', 'censys', 'Shodan-Token', 'ZoomEy-Token', 'Ce
 
 def args_init():
     group = set_subparser.add_mutually_exclusive_group(required=True)
-    group.add_argument('-shodan', type=bool, help='Enable or disable Shodan search')
-    group.add_argument('-zoomey', type=bool, help='Enable or disable ZoomEy search')
-    group.add_argument('-censys', type=bool, help='Enable or disable Censys search')
+    group.add_argument('-shodan', type=str, help='Enable or disable Shodan search')
+    group.add_argument('-zoomey', type=str, help='Enable or disable ZoomEy search')
+    group.add_argument('-censys', type=str, help='Enable or disable Censys search')
 
     group.add_argument('-shodanToken', help='Your\'s personal Shodan token')
     group.add_argument('-zoomeyToken', help='Your\'s personal ZoomEy token')
@@ -53,13 +53,13 @@ def main():
     ip_file_search = False
     if(hasattr(args, 'shodan') and args.shodan):
         print_param(args.shodan, mode='warning')
-        config.set('XIP', 'Shodan', str(args.shodan))
+        config.set('XIP', 'Shodan', str(check_boolean(args.shodan)))
         update_config(config)
     if(hasattr(args, 'zoomey') and args.zoomey):
-        config.set('XIP', 'zoomey', str(args.zoomey))
+        config.set('XIP', 'zoomey', str(check_boolean(args.zoomey)))
         update_config(config)
     if(hasattr(args, 'censys') and args.censys):
-        config.set('XIP', 'censys', str(args.censys))
+        config.set('XIP', 'censys', str(check_boolean(args.censys)))
         update_config(config)
     if(hasattr(args, 'shodanToken') and args.shodanToken):
         config.set('Shodan', 'token', str(args.shodanToken))
@@ -92,35 +92,25 @@ def main():
         try:
             params = read_params(config)
             start_message(parameters=params)
-            if(config['XIP']['shodan']):
+            is_shodan = check_boolean(config['XIP']['shodan'])
+            is_censys = check_boolean(config['XIP']['censys'])
+            if(is_shodan):
                 shodan_api = Shodan_api()
                 if(check_ip(args.ip, is_print=False)):
                     shodan_api.host_search(args.ip)
                 elif(check_path(args.ip, is_print=False)):
                     shodan_api.multi_host_search(args.ip)
-            if(config['XIP']['censys']):
+            if(is_censys):
                 logger.info('Starting Censys scan')
-            if(not(config['XIP']['shodan'] and config['XIP']['censys'])):
+            if(not (is_shodan and is_censys)):
                 raise ValueError('Set true for at least one of this two searching methods (Shodan/Censys)')
         except KeyboardInterrupt:
             print_param("CTRL+C detected, terminating.", mode="error")
             logger.info('CTRL+C detected')
             sys.exit()
-        except ValueError as ex:
-            print_param(ex, mode='error')
-    '''
-        args_init()
-    args = parser.parse_args()
-    set_os_paths()
-    # После установки системных путей можно использовать логер
-    config = read_config()
-    if(args.filter):
-        location_result = shodan_search.get_by_location(config['Shodan']['token'], args.search, args.location)
-        print()
-        print(location_result)
-    else:
-        shodan_search.search(config['Shodan']['token'], args.search)
-    '''
 
 if (__name__ == '__main__'):
-    main()
+    try:
+        main()
+    except ValueError as ex:
+        print_param(ex, mode='error')

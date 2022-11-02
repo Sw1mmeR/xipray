@@ -48,7 +48,7 @@ def set_os_paths():
     if platform == "linux" or platform == "linux2":
         # linux
         config_path = f'/etc/{programm_name}/'
-        log_path = f'/var/log/{programm_name}/'
+        log_path = f'/var/log/'
         install_path = f'/etc/{programm_name}/'
         try:
             is_sudo()
@@ -66,6 +66,7 @@ def set_os_paths():
         install_path = 'C:\\'
     check_paths([config_path, log_path])
     config_path = config_path + 'config.ini'
+    log_path = log_path + f'{programm_name}.log'
     __set_logger(log_path + f'{programm_name}.log')
 
 # Ниже можно использовать логер
@@ -97,7 +98,6 @@ def create_config(path: str = config_path):
     config = configparser.ConfigParser()
     config.add_section("XIP")
     config.set("XIP", "Shodan", "True")
-    config.set("XIP", "ZoomEy", "False")
     config.set("XIP", "Censys", "False")
         
         #config.set("XIP", "shodan-key", "None")
@@ -109,8 +109,6 @@ def create_config(path: str = config_path):
 
     config.add_section("Shodan")
     config.set("Shodan", "token", "None")
-    config.add_section("ZoomEy")
-    config.set("ZoomEy", "token", "None")
     config.add_section("Censys")
     config.set("Censys", "token", "None")
 
