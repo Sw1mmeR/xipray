@@ -16,7 +16,7 @@ def start_message(parameters: list):
     print('=' * line_count)
 
 
-def print_param(name, value = None, mode = "info", file=sys.stdout, max_list_size=8):
+def print_param(name, value = None, mode='info', file=sys.stdout, max_list_size=8):
     #for row in data:
         #print "".join(word.ljust(col_width) for word in row)
     if(mode == 'info' and value is not None):
@@ -28,6 +28,8 @@ def print_param(name, value = None, mode = "info", file=sys.stdout, max_list_siz
         print(f'\033[31m[!] {name}\033[0m', file=file)
     elif(mode == 'warning'):
         print(f'\033[32m[!] {name}\033[0m', file=file)
+    else:
+        raise ValueError(f'Wrong mode value: {mode}. You can use info/error/warning')
 
 def print_params(parameters: list, file=sys.stdout):
     print('=' * line_count, file=file)

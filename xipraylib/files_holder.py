@@ -7,8 +7,10 @@ from xipraylib.xstdout import print_param
 
 programm_name = 'xipray'
 
+install_path = '/'
 config_path = '/'
 log_path = '/'
+
 logger = logging.getLogger(__name__)
 
 def check_paths(paths: list):
@@ -42,15 +44,16 @@ def __set_logger(path):
     logging.basicConfig(filename=path, level=logging.DEBUG)
 
 def set_os_paths():
-    global config_path, log_path
+    global config_path, log_path, install_path
     if platform == "linux" or platform == "linux2":
         # linux
         config_path = f'/etc/{programm_name}/'
         log_path = f'/var/log/{programm_name}/'
+        install_path = f'/etc/{programm_name}/'
         try:
             is_sudo()
         except Exception as ex:
-            print(ex)
+            print_param(ex, mode='error')
             exit(10)
         
     elif platform == "darwin":
@@ -60,6 +63,7 @@ def set_os_paths():
         # Windows
         config_path = os.path.expanduser("~/Documents") + f'/{programm_name}/'
         log_path = os.path.expanduser("~/Documents") + f'/{programm_name}/'
+        install_path = 'C:\\'
     check_paths([config_path, log_path])
     config_path = config_path + 'config.ini'
     __set_logger(log_path + f'{programm_name}.log')
@@ -116,3 +120,11 @@ def create_config(path: str = config_path):
     
     with open(path, "w") as config_file:
         config.write(config_file)
+
+def install():
+    logger.info(f'Moving libraries to {install_path}')
+    os.system(f'cp -rv xipraylib/ {install_path}')
+    os.system(f'cp -v xipray {install_path}')
+    os.system(f'chmod +x {install_path}xipray')
+    os.system(f'rm /usr/bin/{programm_name}')
+    os.system(f'ln -s {install_path}xipray /usr/bin/{programm_name}')
