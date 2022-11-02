@@ -6,7 +6,7 @@ from xipraylib.files_holder import read_config, set_os_paths
 _log_format = "[%(asctime)s] %(levelname)s [%(filename)s %(name)s %(funcName)s (%(lineno)d)]: %(message)s"
 _log_format_journal = '[%(filename)s] %(message)s'
 
-def get_file_handler(path = "./log/xapi.log"):
+def get_file_handler(path = "/var/log/xipray.log"):
     file_handler = logging.FileHandler(path)
     file_handler.setLevel(logging.DEBUG)
     file_handler.setFormatter(logging.Formatter(_log_format))
@@ -30,6 +30,6 @@ def get_logger(name):
         logger.setLevel(logging.DEBUG)
     else:
         logger.setLevel(logging.NOTSET)
-    logger.addHandler(get_file_handler())
+    logger.addHandler(get_file_handler(logpath))
     #logger.addHandler(get_stream_handler())
     return logger
