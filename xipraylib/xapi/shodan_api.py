@@ -18,20 +18,25 @@ class Shodan_api:
         self.write_path = './host_search_results.txt'
         if(os.path.isfile(self.write_path)):
             os.remove(self.write_path)
-
+        self.popular_ports = [7, 20, 21, 22, 23, 25, 80, 443, 8080]
+        
     def host_search(self, query):
         logger.info('Start host shodan search')
         try:
             results = self.api.host(query)
             with open('test.json', 'w') as file:
                 json.dump(results, file) #, sort_keys = True
+            
+            logger.info('Sorting ports list')
+            ports_list = sorted(results['ports'], key=lambda x: x - 1000000 if x in self.popular_ports  else x)
+
             print_host_banner(results['ip_str'] ,[
                     ('Hostnames', ''.join(results['hostnames'])),
                     ('OS', results['os']),
                     ('Country', results['country_name']),
                     ('City', results['city']),
                     ('Organization', results['org']),
-                    ('Ports', results['ports'])
+                    ('Ports', ports_list)
                     ])
             with open(self.write_path, 'a') as file:
                 print_host_banner(results['ip_str'] ,[
@@ -40,7 +45,7 @@ class Shodan_api:
                     ('Country', results['country_name']),
                     ('City', results['city']),
                     ('Organization', results['org']),
-                    ('Ports', results['ports'])
+                    ('Ports', ports_list)
                     ], file=file)
         except shodan.exception.APIError as ex:
             logger.error(ex)

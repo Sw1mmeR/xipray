@@ -24,7 +24,6 @@ params_list = ['shodan', 'zoomey', 'censys', 'Shodan-Token', 'ZoomEy-Token', 'Ce
 def args_init():
     group = set_subparser.add_mutually_exclusive_group(required=True)
     group.add_argument('-shodan', type=str, help='Enable or disable Shodan search')
-    group.add_argument('-zoomey', type=str, help='Enable or disable ZoomEy search')
     group.add_argument('-censys', type=str, help='Enable or disable Censys search')
 
     group.add_argument('-shodanToken', help='Your\'s personal Shodan token')
