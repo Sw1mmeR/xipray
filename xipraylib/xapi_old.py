@@ -1,5 +1,5 @@
 import requests
-from xapi_logger import get_logger
+from xipraylib.xapi_logger import get_logger
 import logging
 
 logger = logging.getLogger(__name__)

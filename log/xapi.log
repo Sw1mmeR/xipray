@@ -1,234 +1,114 @@
-[2022-10-25 19:10:35,795] ERROR [xapi_validator.py xapi_validator check_ip (22)]: Address/netmask is invalid: c:\Projects\xIPray\addr.txt
-[2022-10-25 19:10:35,795] INFO [xapi_validator.py xapi_validator check_ip_or_path (32)]: Checking input ip or path. Is ip: False. Is path: True
-[2022-10-25 19:10:35,799] INFO [shodan_api.py xapi.shodan_api __init__ (16)]: Init shodan search
-[2022-10-25 19:10:35,799] ERROR [xapi_validator.py xapi_validator check_ip (22)]: Address/netmask is invalid: c:\Projects\xIPray\addr.txt
-[2022-10-25 19:10:35,800] ERROR [xapi_validator.py xapi_validator check_ip (22)]: Address/netmask is invalid: 100.110.0.11
+[2022-10-26 11:50:37,627] ERROR [xapi_validator.py xipraylib.xapi_validator check_ip (22)]: Address/netmask is invalid: 12
+[2022-10-26 11:50:37,628] INFO [xapi_validator.py xipraylib.xapi_validator check_ip_or_path (32)]: Checking input ip or path. Is ip: False. Is path: False
+[2022-10-26 11:53:11,026] ERROR [xapi_validator.py xipraylib.xapi_validator check_ip (22)]: Address/netmask is invalid: 12
+[2022-10-26 11:53:20,538] INFO [shodan_api.py xipraylib.xapi.shodan_api __init__ (17)]: Init shodan search
+[2022-10-26 11:53:20,538] INFO [shodan_api.py xipraylib.xapi.shodan_api host_search (23)]: Start host shodan search
+[2022-10-26 11:53:20,886] ERROR [shodan_api.py xipraylib.xapi.shodan_api host_search (46)]: Invalid API key
+[2022-10-26 11:53:26,073] ERROR [xapi_validator.py xipraylib.xapi_validator check_ip (22)]: Address/netmask is invalid: 192.168.
+[2022-10-26 11:53:45,041] ERROR [xapi_validator.py xipraylib.xapi_validator check_ip (22)]: Address/netmask is invalid: /home/sw1mmer/Projects/xipray/addr.txt
+[2022-10-26 11:53:45,042] INFO [shodan_api.py xipraylib.xapi.shodan_api __init__ (17)]: Init shodan search
+[2022-10-26 11:53:45,042] ERROR [xapi_validator.py xipraylib.xapi_validator check_ip (22)]: Address/netmask is invalid: /home/sw1mmer/Projects/xipray/addr.txt
+[2022-10-26 11:53:45,042] INFO [shodan_api.py xipraylib.xapi.shodan_api host_search (23)]: Start host shodan search
+[2022-10-26 11:53:45,756] ERROR [shodan_api.py xipraylib.xapi.shodan_api host_search (46)]: Invalid API key
+[2022-10-26 11:53:45,756] INFO [shodan_api.py xipraylib.xapi.shodan_api host_search (23)]: Start host shodan search
+[2022-10-26 11:53:47,045] ERROR [shodan_api.py xipraylib.xapi.shodan_api host_search (46)]: Invalid API key
+[2022-10-26 11:53:47,045] INFO [shodan_api.py xipraylib.xapi.shodan_api host_search (23)]: Start host shodan search
+[2022-10-26 11:53:48,272] ERROR [shodan_api.py xipraylib.xapi.shodan_api host_search (46)]: Invalid API key
+[2022-10-26 11:53:48,272] INFO [shodan_api.py xipraylib.xapi.shodan_api host_search (23)]: Start host shodan search
+[2022-10-26 11:53:50,249] ERROR [shodan_api.py xipraylib.xapi.shodan_api host_search (46)]: Invalid API key
+[2022-10-26 11:53:50,250] INFO [shodan_api.py xipraylib.xapi.shodan_api host_search (23)]: Start host shodan search
+[2022-10-26 11:53:50,942] INFO [xipray __main__ main (99)]: CTRL+C detected
+[2022-10-26 11:58:33,853] ERROR [xapi_validator.py xipraylib.xapi_validator check_ip (22)]: Address/netmask is invalid: /home/sw1mmer/Projects/xipray/addr.txt
+[2022-10-26 11:58:33,853] INFO [shodan_api.py xipraylib.xapi.shodan_api __init__ (17)]: Init shodan search
+[2022-10-26 11:58:33,853] ERROR [xapi_validator.py xipraylib.xapi_validator check_ip (22)]: Address/netmask is invalid: /home/sw1mmer/Projects/xipray/addr.txt
+[2022-10-26 11:58:33,854] INFO [shodan_api.py xipraylib.xapi.shodan_api host_search (23)]: Start host shodan search
+[2022-10-26 11:58:34,261] ERROR [shodan_api.py xipraylib.xapi.shodan_api host_search (46)]: No information available for that IP.
+[2022-10-26 11:58:34,262] INFO [shodan_api.py xipraylib.xapi.shodan_api host_search (23)]: Start host shodan search
+[2022-10-26 11:58:35,505] ERROR [shodan_api.py xipraylib.xapi.shodan_api host_search (46)]: No information available for that IP.
+[2022-10-26 11:58:35,505] INFO [shodan_api.py xipraylib.xapi.shodan_api host_search (23)]: Start host shodan search
+[2022-10-26 11:58:37,350] INFO [shodan_api.py xipraylib.xapi.shodan_api host_search (23)]: Start host shodan search
+[2022-10-26 11:58:40,230] INFO [shodan_api.py xipraylib.xapi.shodan_api host_search (23)]: Start host shodan search
+[2022-10-26 11:58:43,492] ERROR [shodan_api.py xipraylib.xapi.shodan_api host_search (46)]: Invalid IP
+[2022-10-26 11:58:43,492] ERROR [xapi_validator.py xipraylib.xapi_validator check_ip (22)]: Address/netmask is invalid: test
+[2022-10-26 11:58:43,492] ERROR [xapi_validator.py xipraylib.xapi_validator check_ip (22)]: Address/netmask is invalid: c://
+[2022-10-26 11:58:43,493] INFO [shodan_api.py xipraylib.xapi.shodan_api host_search (23)]: Start host shodan search
+[2022-10-26 11:58:44,723] ERROR [shodan_api.py xipraylib.xapi.shodan_api host_search (46)]: No information available for that IP.
+[2022-10-26 11:58:44,724] INFO [shodan_api.py xipraylib.xapi.shodan_api host_search (23)]: Start host shodan search
+[2022-10-26 11:58:45,969] ERROR [shodan_api.py xipraylib.xapi.shodan_api host_search (46)]: No information available for that IP.
+[2022-10-26 11:58:45,970] INFO [shodan_api.py xipraylib.xapi.shodan_api host_search (23)]: Start host shodan search
+[2022-10-26 11:58:47,314] ERROR [shodan_api.py xipraylib.xapi.shodan_api host_search (46)]: No information available for that IP.
+[2022-10-26 11:58:47,314] ERROR [xapi_validator.py xipraylib.xapi_validator check_ip (22)]: Address/netmask is invalid: #185.126.239.251
+[2022-10-26 11:58:47,315] ERROR [xapi_validator.py xipraylib.xapi_validator check_ip (22)]: Address/netmask is invalid: 
+[2022-10-26 11:58:47,315] ERROR [xapi_validator.py xipraylib.xapi_validator check_ip (22)]: Address/netmask is invalid: test2
+[2022-10-26 11:58:47,315] INFO [shodan_api.py xipraylib.xapi.shodan_api host_search (23)]: Start host shodan search
+[2022-10-28 10:49:07,720] INFO [shodan_api.py xipraylib.xapi.shodan_api __init__ (17)]: Init shodan search
+[2022-10-28 10:49:07,737] INFO [shodan_api.py xipraylib.xapi.shodan_api host_search (23)]: Start host shodan search
+[2022-10-28 10:49:24,000] ERROR [xapi_validator.py xipraylib.xapi_validator check_ip (22)]: Address/netmask is invalid: 8r
+[2022-10-31 11:12:40,627] INFO [shodan_api.py xipraylib.xapi.shodan_api __init__ (17)]: Init shodan search
+[2022-10-31 11:12:40,629] INFO [shodan_api.py xipraylib.xapi.shodan_api host_search (23)]: Start host shodan search
+[2022-10-31 11:14:34,293] ERROR [xapi_validator.py xipraylib.xapi_validator check_ip (22)]: Address/netmask is invalid: addr.txt
+[2022-10-31 11:14:34,301] INFO [shodan_api.py xipraylib.xapi.shodan_api __init__ (17)]: Init shodan search
+[2022-10-31 11:14:34,302] ERROR [xapi_validator.py xipraylib.xapi_validator check_ip (22)]: Address/netmask is invalid: addr.txt
+[2022-10-31 11:14:34,303] INFO [shodan_api.py xipraylib.xapi.shodan_api host_search (23)]: Start host shodan search
+[2022-10-31 11:14:35,104] ERROR [shodan_api.py xipraylib.xapi.shodan_api host_search (46)]: No information available for that IP.
+[2022-10-31 11:14:35,105] INFO [shodan_api.py xipraylib.xapi.shodan_api host_search (23)]: Start host shodan search
+[2022-10-31 11:14:36,456] ERROR [shodan_api.py xipraylib.xapi.shodan_api host_search (46)]: No information available for that IP.
+[2022-10-31 11:14:36,457] INFO [shodan_api.py xipraylib.xapi.shodan_api host_search (23)]: Start host shodan search
+[2022-10-31 11:14:38,735] INFO [shodan_api.py xipraylib.xapi.shodan_api host_search (23)]: Start host shodan search
+[2022-10-31 11:14:42,013] INFO [shodan_api.py xipraylib.xapi.shodan_api host_search (23)]: Start host shodan search
+[2022-10-31 11:14:43,978] ERROR [shodan_api.py xipraylib.xapi.shodan_api host_search (46)]: Invalid IP
+[2022-10-31 11:14:43,980] ERROR [xapi_validator.py xipraylib.xapi_validator check_ip (22)]: Address/netmask is invalid: test
+[2022-10-31 11:14:43,981] ERROR [xapi_validator.py xipraylib.xapi_validator check_ip (22)]: Address/netmask is invalid: c://
+[2022-10-31 11:14:43,982] INFO [shodan_api.py xipraylib.xapi.shodan_api host_search (23)]: Start host shodan search
+[2022-10-31 11:14:45,650] ERROR [shodan_api.py xipraylib.xapi.shodan_api host_search (46)]: No information available for that IP.
+[2022-10-31 11:14:45,651] INFO [shodan_api.py xipraylib.xapi.shodan_api host_search (23)]: Start host shodan search
+[2022-10-31 11:14:46,965] ERROR [shodan_api.py xipraylib.xapi.shodan_api host_search (46)]: No information available for that IP.
+[2022-10-31 11:14:46,967] INFO [shodan_api.py xipraylib.xapi.shodan_api host_search (23)]: Start host shodan search
+[2022-10-31 11:14:48,307] ERROR [shodan_api.py xipraylib.xapi.shodan_api host_search (46)]: No information available for that IP.
+[2022-10-31 11:14:48,309] ERROR [xapi_validator.py xipraylib.xapi_validator check_ip (22)]: Address/netmask is invalid: #185.126.239.251
+[2022-10-31 11:14:48,315] ERROR [xapi_validator.py xipraylib.xapi_validator check_ip (22)]: Address/netmask is invalid: 
+[2022-10-31 11:14:48,316] ERROR [xapi_validator.py xipraylib.xapi_validator check_ip (22)]: Address/netmask is invalid: test2
+[2022-10-31 11:14:48,317] INFO [shodan_api.py xipraylib.xapi.shodan_api host_search (23)]: Start host shodan search
+[2022-10-31 11:51:08,700] INFO [shodan_api.py xipraylib.xapi.shodan_api __init__ (17)]: Init shodan search
+[2022-10-31 11:51:08,701] INFO [shodan_api.py xipraylib.xapi.shodan_api host_search (23)]: Start host shodan search
+[2022-10-31 12:00:11,828] INFO [shodan_api.py xipraylib.xapi.shodan_api __init__ (17)]: Init shodan search
+[2022-10-31 12:00:11,828] INFO [shodan_api.py xipraylib.xapi.shodan_api host_search (23)]: Start host shodan search
+[2022-10-31 12:02:00,373] INFO [shodan_api.py xipraylib.xapi.shodan_api __init__ (17)]: Init shodan search
+[2022-10-31 12:02:00,375] INFO [shodan_api.py xipraylib.xapi.shodan_api host_search (23)]: Start host shodan search
+[2022-10-31 12:05:05,385] INFO [shodan_api.py xipraylib.xapi.shodan_api __init__ (17)]: Init shodan search
+[2022-10-31 12:05:05,385] INFO [shodan_api.py xipraylib.xapi.shodan_api host_search (23)]: Start host shodan search
+[2022-10-31 12:06:00,392] INFO [shodan_api.py xipraylib.xapi.shodan_api __init__ (17)]: Init shodan search
+[2022-10-31 12:06:00,392] INFO [shodan_api.py xipraylib.xapi.shodan_api host_search (23)]: Start host shodan search
+[2022-10-31 12:07:11,003] INFO [shodan_api.py xipraylib.xapi.shodan_api __init__ (17)]: Init shodan search
+[2022-10-31 12:07:11,004] INFO [shodan_api.py xipraylib.xapi.shodan_api host_search (23)]: Start host shodan search
+[2022-10-31 12:19:05,021] INFO [shodan_api.py xipraylib.xapi.shodan_api __init__ (17)]: Init shodan search
+[2022-10-31 12:19:05,022] INFO [shodan_api.py xipraylib.xapi.shodan_api host_search (23)]: Start host shodan search
+[2022-10-31 12:20:09,444] INFO [shodan_api.py xipraylib.xapi.shodan_api __init__ (17)]: Init shodan search
+[2022-10-31 12:20:09,445] INFO [shodan_api.py xipraylib.xapi.shodan_api host_search (23)]: Start host shodan search
+[2022-11-02 13:48:25,742] INFO [install.py __main__ <module> (11)]: Starting script installation
+[2022-11-02 13:48:42,528] INFO [install.py __main__ <module> (11)]: Starting script installation
+[2022-11-02 13:49:24,538] INFO [install.py __main__ <module> (11)]: Starting script installation
+[2022-11-02 13:49:45,157] INFO [install.py __main__ <module> (11)]: Starting script installation
+[2022-11-02 13:49:52,500] INFO [install.py __main__ <module> (11)]: Starting script installation
+[2022-11-02 13:50:30,016] INFO [install.py __main__ <module> (11)]: Starting script installation
+[2022-11-02 13:50:39,170] INFO [install.py __main__ <module> (11)]: Starting script installation
+[2022-11-02 13:51:18,979] INFO [install.py __main__ <module> (11)]: Starting script installation
 
-[2022-10-25 19:10:35,800] ERROR [xapi_validator.py xapi_validator check_ip (22)]: Address/netmask is invalid: 192.169.5.2
 
-[2022-10-25 19:10:35,801] ERROR [xapi_validator.py xapi_validator check_ip (22)]: Address/netmask is invalid: 8.8.8.8
-
-[2022-10-25 19:10:35,801] ERROR [xapi_validator.py xapi_validator check_ip (22)]: Address/netmask is invalid: 9.9.9.9
-
-[2022-10-25 19:10:35,802] ERROR [xapi_validator.py xapi_validator check_ip (22)]: Address/netmask is invalid: 0.0.0.0
-
-[2022-10-25 19:10:35,802] ERROR [xapi_validator.py xapi_validator check_ip (22)]: Address/netmask is invalid: test
-
-[2022-10-25 19:10:35,803] ERROR [xapi_validator.py xapi_validator check_ip (22)]: Address/netmask is invalid: c://
-[2022-10-25 19:11:44,288] ERROR [xapi_validator.py xapi_validator check_ip (22)]: Address/netmask is invalid: c:\Projects\xIPray\addr.txt
-[2022-10-25 19:11:44,288] INFO [xapi_validator.py xapi_validator check_ip_or_path (32)]: Checking input ip or path. Is ip: False. Is path: True
-[2022-10-25 19:11:44,290] INFO [shodan_api.py xapi.shodan_api __init__ (16)]: Init shodan search
-[2022-10-25 19:11:44,291] ERROR [xapi_validator.py xapi_validator check_ip (22)]: Address/netmask is invalid: c:\Projects\xIPray\addr.txt
-[2022-10-25 19:11:44,291] ERROR [xapi_validator.py xapi_validator check_ip (22)]: Address/netmask is invalid: 100.110.0.11
-
-[2022-10-25 19:11:44,292] ERROR [xapi_validator.py xapi_validator check_ip (22)]: Address/netmask is invalid: 192.169.5.2
-
-[2022-10-25 19:11:44,292] ERROR [xapi_validator.py xapi_validator check_ip (22)]: Address/netmask is invalid: 8.8.8.8
-
-[2022-10-25 19:11:44,293] ERROR [xapi_validator.py xapi_validator check_ip (22)]: Address/netmask is invalid: 9.9.9.9
-
-[2022-10-25 19:11:44,293] ERROR [xapi_validator.py xapi_validator check_ip (22)]: Address/netmask is invalid: 0.0.0.0
-
-[2022-10-25 19:11:44,294] ERROR [xapi_validator.py xapi_validator check_ip (22)]: Address/netmask is invalid: test
-
-[2022-10-25 19:11:44,294] ERROR [xapi_validator.py xapi_validator check_ip (22)]: Address/netmask is invalid: c://
-[2022-10-25 19:12:49,762] ERROR [xapi_validator.py xapi_validator check_ip (22)]: Address/netmask is invalid: c:\Projects\xIPray\addr.txt
-[2022-10-25 19:12:49,762] INFO [xapi_validator.py xapi_validator check_ip_or_path (32)]: Checking input ip or path. Is ip: False. Is path: True
-[2022-10-25 19:12:49,765] INFO [shodan_api.py xapi.shodan_api __init__ (16)]: Init shodan search
-[2022-10-25 19:12:49,765] ERROR [xapi_validator.py xapi_validator check_ip (22)]: Address/netmask is invalid: c:\Projects\xIPray\addr.txt
-[2022-10-25 19:12:49,767] ERROR [xapi_validator.py xapi_validator check_ip (22)]: Address/netmask is invalid: 100.110.0.11
-
-[2022-10-25 19:12:49,767] ERROR [xapi_validator.py xapi_validator check_ip (22)]: Address/netmask is invalid: 192.169.5.2
-
-[2022-10-25 19:12:49,768] ERROR [xapi_validator.py xapi_validator check_ip (22)]: Address/netmask is invalid: 8.8.8.8
-
-[2022-10-25 19:12:49,769] ERROR [xapi_validator.py xapi_validator check_ip (22)]: Address/netmask is invalid: 9.9.9.9
-
-[2022-10-25 19:12:49,770] ERROR [xapi_validator.py xapi_validator check_ip (22)]: Address/netmask is invalid: 0.0.0.0
-
-[2022-10-25 19:12:49,771] ERROR [xapi_validator.py xapi_validator check_ip (22)]: Address/netmask is invalid: test
-
-[2022-10-25 19:12:49,771] ERROR [xapi_validator.py xapi_validator check_ip (22)]: Address/netmask is invalid: c://
-[2022-10-25 19:13:08,062] ERROR [xapi_validator.py xapi_validator check_ip (22)]: Address/netmask is invalid: c:\Projects\xIPray\addr.txt
-[2022-10-25 19:13:08,062] INFO [xapi_validator.py xapi_validator check_ip_or_path (32)]: Checking input ip or path. Is ip: False. Is path: True
-[2022-10-25 19:13:08,063] INFO [shodan_api.py xapi.shodan_api __init__ (16)]: Init shodan search
-[2022-10-25 19:13:08,063] ERROR [xapi_validator.py xapi_validator check_ip (22)]: Address/netmask is invalid: c:\Projects\xIPray\addr.txt
-[2022-10-25 19:14:04,649] ERROR [xapi_validator.py xapi_validator check_ip (22)]: Address/netmask is invalid: c:\Projects\xIPray\addr.txt
-[2022-10-25 19:14:04,649] INFO [xapi_validator.py xapi_validator check_ip_or_path (32)]: Checking input ip or path. Is ip: False. Is path: True
-[2022-10-25 19:14:04,650] INFO [shodan_api.py xapi.shodan_api __init__ (16)]: Init shodan search
-[2022-10-25 19:14:04,650] ERROR [xapi_validator.py xapi_validator check_ip (22)]: Address/netmask is invalid: c:\Projects\xIPray\addr.txt
-[2022-10-25 19:14:04,651] INFO [shodan_api.py xapi.shodan_api host_search (19)]: Start host shodan search
-[2022-10-25 19:14:05,110] ERROR [shodan_api.py xapi.shodan_api host_search (33)]: No information available for that IP.
-[2022-10-25 19:14:05,110] INFO [shodan_api.py xapi.shodan_api host_search (19)]: Start host shodan search
-[2022-10-25 19:14:08,740] ERROR [shodan_api.py xapi.shodan_api host_search (33)]: No information available for that IP.
-[2022-10-25 19:14:08,740] INFO [shodan_api.py xapi.shodan_api host_search (19)]: Start host shodan search
-[2022-10-25 19:14:10,077] INFO [shodan_api.py xapi.shodan_api host_search (19)]: Start host shodan search
-[2022-10-25 19:14:13,732] INFO [shodan_api.py xapi.shodan_api host_search (19)]: Start host shodan search
-[2022-10-25 19:14:15,062] ERROR [shodan_api.py xapi.shodan_api host_search (33)]: Invalid IP
-[2022-10-25 19:14:15,062] ERROR [xapi_validator.py xapi_validator check_ip (22)]: Address/netmask is invalid: test
-[2022-10-25 19:14:15,062] ERROR [xapi_validator.py xapi_validator check_ip (22)]: Address/netmask is invalid: c://
-[2022-10-25 19:15:41,704] INFO [xapi_validator.py xapi_validator check_ip_or_path (32)]: Checking input ip or path. Is ip: True. Is path: False
-[2022-10-25 19:15:41,705] INFO [shodan_api.py xapi.shodan_api __init__ (16)]: Init shodan search
-[2022-10-25 19:15:41,706] INFO [shodan_api.py xapi.shodan_api host_search (19)]: Start host shodan search
-[2022-10-25 19:15:56,199] INFO [xapi_validator.py xapi_validator check_ip_or_path (32)]: Checking input ip or path. Is ip: True. Is path: False
-[2022-10-25 19:15:56,200] INFO [shodan_api.py xapi.shodan_api __init__ (16)]: Init shodan search
-[2022-10-25 19:15:56,200] INFO [shodan_api.py xapi.shodan_api host_search (19)]: Start host shodan search
-[2022-10-25 19:23:16,751] INFO [xapi_validator.py xapi_validator check_ip_or_path (32)]: Checking input ip or path. Is ip: True. Is path: False
-[2022-10-25 19:23:16,752] INFO [shodan_api.py xapi.shodan_api __init__ (16)]: Init shodan search
-[2022-10-25 19:23:16,752] INFO [shodan_api.py xapi.shodan_api host_search (20)]: Start host shodan search
-[2022-10-25 19:23:22,451] ERROR [shodan_api.py xapi.shodan_api host_search (46)]: Error in shodan search module
-[2022-10-25 19:23:50,574] INFO [xapi_validator.py xapi_validator check_ip_or_path (32)]: Checking input ip or path. Is ip: True. Is path: False
-[2022-10-25 19:23:50,576] INFO [shodan_api.py xapi.shodan_api __init__ (16)]: Init shodan search
-[2022-10-25 19:23:50,576] INFO [shodan_api.py xapi.shodan_api host_search (20)]: Start host shodan search
-[2022-10-25 19:24:55,646] INFO [xapi_validator.py xapi_validator check_ip_or_path (32)]: Checking input ip or path. Is ip: True. Is path: False
-[2022-10-25 19:24:55,647] INFO [shodan_api.py xapi.shodan_api __init__ (16)]: Init shodan search
-[2022-10-25 19:24:55,647] INFO [shodan_api.py xapi.shodan_api host_search (20)]: Start host shodan search
-[2022-10-25 19:25:08,137] ERROR [xapi_validator.py xapi_validator check_ip (22)]: Address/netmask is invalid: c:\Projects\xIPray\addr.txt
-[2022-10-25 19:25:08,138] INFO [xapi_validator.py xapi_validator check_ip_or_path (32)]: Checking input ip or path. Is ip: False. Is path: True
-[2022-10-25 19:25:08,140] INFO [shodan_api.py xapi.shodan_api __init__ (16)]: Init shodan search
-[2022-10-25 19:25:08,140] ERROR [xapi_validator.py xapi_validator check_ip (22)]: Address/netmask is invalid: c:\Projects\xIPray\addr.txt
-[2022-10-25 19:25:08,141] INFO [shodan_api.py xapi.shodan_api host_search (20)]: Start host shodan search
-[2022-10-25 19:25:09,233] ERROR [shodan_api.py xapi.shodan_api host_search (43)]: No information available for that IP.
-[2022-10-25 19:25:09,233] INFO [shodan_api.py xapi.shodan_api host_search (20)]: Start host shodan search
-[2022-10-25 19:25:10,566] ERROR [shodan_api.py xapi.shodan_api host_search (43)]: No information available for that IP.
-[2022-10-25 19:25:10,566] INFO [shodan_api.py xapi.shodan_api host_search (20)]: Start host shodan search
-[2022-10-25 19:25:11,908] INFO [shodan_api.py xapi.shodan_api host_search (20)]: Start host shodan search
-[2022-10-25 19:25:13,248] INFO [shodan_api.py xapi.shodan_api host_search (20)]: Start host shodan search
-[2022-10-25 19:25:19,416] ERROR [shodan_api.py xapi.shodan_api host_search (43)]: Invalid IP
-[2022-10-25 19:25:19,416] ERROR [xapi_validator.py xapi_validator check_ip (22)]: Address/netmask is invalid: test
-[2022-10-25 19:25:19,417] ERROR [xapi_validator.py xapi_validator check_ip (22)]: Address/netmask is invalid: c://
-[2022-10-25 19:29:12,453] ERROR [xapi_validator.py xapi_validator check_ip (22)]: Address/netmask is invalid: c:\Projects\xIPray\addr.txt
-[2022-10-25 19:29:12,453] INFO [xapi_validator.py xapi_validator check_ip_or_path (32)]: Checking input ip or path. Is ip: False. Is path: True
-[2022-10-25 19:29:12,454] INFO [shodan_api.py xapi.shodan_api __init__ (17)]: Init shodan search
-[2022-10-25 19:29:12,454] ERROR [xapi_validator.py xapi_validator check_ip (22)]: Address/netmask is invalid: c:\Projects\xIPray\addr.txt
-[2022-10-25 19:29:12,455] INFO [shodan_api.py xapi.shodan_api host_search (21)]: Start host shodan search
-[2022-10-25 19:29:16,138] ERROR [shodan_api.py xapi.shodan_api host_search (46)]: No information available for that IP.
-[2022-10-25 19:29:16,138] INFO [shodan_api.py xapi.shodan_api host_search (21)]: Start host shodan search
-[2022-10-25 19:29:17,472] ERROR [shodan_api.py xapi.shodan_api host_search (46)]: No information available for that IP.
-[2022-10-25 19:29:17,472] INFO [shodan_api.py xapi.shodan_api host_search (21)]: Start host shodan search
-[2022-10-25 19:29:18,810] ERROR [shodan_api.py xapi.shodan_api host_search (49)]: Error in shodan search module
-[2022-10-25 19:29:18,811] INFO [shodan_api.py xapi.shodan_api host_search (21)]: Start host shodan search
-[2022-10-25 19:29:20,142] ERROR [shodan_api.py xapi.shodan_api host_search (49)]: Error in shodan search module
-[2022-10-25 19:29:20,142] INFO [shodan_api.py xapi.shodan_api host_search (21)]: Start host shodan search
-[2022-10-25 19:29:21,456] ERROR [shodan_api.py xapi.shodan_api host_search (46)]: Invalid IP
-[2022-10-25 19:29:21,456] ERROR [xapi_validator.py xapi_validator check_ip (22)]: Address/netmask is invalid: test
-[2022-10-25 19:29:21,457] ERROR [xapi_validator.py xapi_validator check_ip (22)]: Address/netmask is invalid: c://
-[2022-10-25 19:29:29,549] ERROR [xapi_validator.py xapi_validator check_ip (22)]: Address/netmask is invalid: c:\Projects\xIPray\addr.txt
-[2022-10-25 19:29:29,549] INFO [xapi_validator.py xapi_validator check_ip_or_path (32)]: Checking input ip or path. Is ip: False. Is path: True
-[2022-10-25 19:29:29,551] INFO [shodan_api.py xapi.shodan_api __init__ (17)]: Init shodan search
-[2022-10-25 19:29:29,552] ERROR [xapi_validator.py xapi_validator check_ip (22)]: Address/netmask is invalid: c:\Projects\xIPray\addr.txt
-[2022-10-25 19:29:29,552] INFO [shodan_api.py xapi.shodan_api host_search (21)]: Start host shodan search
-[2022-10-25 19:29:29,941] ERROR [shodan_api.py xapi.shodan_api host_search (46)]: No information available for that IP.
-[2022-10-25 19:29:29,941] INFO [shodan_api.py xapi.shodan_api host_search (21)]: Start host shodan search
-[2022-10-25 19:29:31,472] ERROR [shodan_api.py xapi.shodan_api host_search (46)]: No information available for that IP.
-[2022-10-25 19:29:31,472] INFO [shodan_api.py xapi.shodan_api host_search (21)]: Start host shodan search
-[2022-10-25 19:29:32,811] ERROR [shodan_api.py xapi.shodan_api host_search (49)]: Error in shodan search module
-[2022-10-25 19:29:32,811] INFO [shodan_api.py xapi.shodan_api host_search (21)]: Start host shodan search
-[2022-10-25 19:30:17,314] ERROR [xapi_validator.py xapi_validator check_ip (22)]: Address/netmask is invalid: c:\Projects\xIPray\addr.txt
-[2022-10-25 19:30:17,314] INFO [xapi_validator.py xapi_validator check_ip_or_path (32)]: Checking input ip or path. Is ip: False. Is path: True
-[2022-10-25 19:30:17,317] INFO [shodan_api.py xapi.shodan_api __init__ (17)]: Init shodan search
-[2022-10-25 19:30:17,317] ERROR [xapi_validator.py xapi_validator check_ip (22)]: Address/netmask is invalid: c:\Projects\xIPray\addr.txt
-[2022-10-25 19:30:17,317] INFO [shodan_api.py xapi.shodan_api host_search (21)]: Start host shodan search
-[2022-10-25 19:30:19,024] ERROR [shodan_api.py xapi.shodan_api host_search (46)]: No information available for that IP.
-[2022-10-25 19:30:19,024] INFO [shodan_api.py xapi.shodan_api host_search (21)]: Start host shodan search
-[2022-10-25 19:30:20,608] ERROR [shodan_api.py xapi.shodan_api host_search (46)]: No information available for that IP.
-[2022-10-25 19:30:20,608] INFO [shodan_api.py xapi.shodan_api host_search (21)]: Start host shodan search
-[2022-10-25 19:30:22,016] ERROR [shodan_api.py xapi.shodan_api host_search (49)]: Error in shodan search module
-[2022-10-25 19:30:22,016] INFO [shodan_api.py xapi.shodan_api host_search (21)]: Start host shodan search
-[2022-10-25 19:30:23,356] ERROR [shodan_api.py xapi.shodan_api host_search (49)]: Error in shodan search module
-[2022-10-25 19:30:23,356] INFO [shodan_api.py xapi.shodan_api host_search (21)]: Start host shodan search
-[2022-10-25 19:30:34,903] ERROR [xapi_validator.py xapi_validator check_ip (22)]: Address/netmask is invalid: c:\Projects\xIPray\addr.txt
-[2022-10-25 19:30:34,903] INFO [xapi_validator.py xapi_validator check_ip_or_path (32)]: Checking input ip or path. Is ip: False. Is path: True
-[2022-10-25 19:30:34,906] INFO [shodan_api.py xapi.shodan_api __init__ (17)]: Init shodan search
-[2022-10-25 19:30:34,906] ERROR [xapi_validator.py xapi_validator check_ip (22)]: Address/netmask is invalid: c:\Projects\xIPray\addr.txt
-[2022-10-25 19:30:34,907] INFO [shodan_api.py xapi.shodan_api host_search (21)]: Start host shodan search
-[2022-10-25 19:30:35,430] ERROR [shodan_api.py xapi.shodan_api host_search (46)]: No information available for that IP.
-[2022-10-25 19:30:35,430] INFO [shodan_api.py xapi.shodan_api host_search (21)]: Start host shodan search
-[2022-10-25 19:30:37,780] ERROR [shodan_api.py xapi.shodan_api host_search (46)]: No information available for that IP.
-[2022-10-25 19:30:37,781] INFO [shodan_api.py xapi.shodan_api host_search (21)]: Start host shodan search
-[2022-10-25 19:30:39,118] ERROR [shodan_api.py xapi.shodan_api host_search (49)]: Error in shodan search module
-[2022-10-25 19:30:39,119] INFO [shodan_api.py xapi.shodan_api host_search (21)]: Start host shodan search
-[2022-10-25 19:30:54,266] ERROR [xapi_validator.py xapi_validator check_ip (22)]: Address/netmask is invalid: c:\Projects\xIPray\addr.txt
-[2022-10-25 19:30:54,266] INFO [xapi_validator.py xapi_validator check_ip_or_path (32)]: Checking input ip or path. Is ip: False. Is path: True
-[2022-10-25 19:30:54,267] INFO [shodan_api.py xapi.shodan_api __init__ (17)]: Init shodan search
-[2022-10-25 19:30:54,268] ERROR [xapi_validator.py xapi_validator check_ip (22)]: Address/netmask is invalid: c:\Projects\xIPray\addr.txt
-[2022-10-25 19:30:54,268] INFO [shodan_api.py xapi.shodan_api host_search (21)]: Start host shodan search
-[2022-10-25 19:30:54,669] ERROR [shodan_api.py xapi.shodan_api host_search (46)]: No information available for that IP.
-[2022-10-25 19:30:54,669] INFO [shodan_api.py xapi.shodan_api host_search (21)]: Start host shodan search
-[2022-10-25 19:30:57,092] ERROR [shodan_api.py xapi.shodan_api host_search (46)]: No information available for that IP.
-[2022-10-25 19:30:57,093] INFO [shodan_api.py xapi.shodan_api host_search (21)]: Start host shodan search
-[2022-10-25 19:30:58,445] INFO [shodan_api.py xapi.shodan_api host_search (21)]: Start host shodan search
-[2022-10-25 19:31:01,399] INFO [shodan_api.py xapi.shodan_api host_search (21)]: Start host shodan search
-[2022-10-25 19:31:02,726] ERROR [shodan_api.py xapi.shodan_api host_search (46)]: Invalid IP
-[2022-10-25 19:31:02,727] ERROR [xapi_validator.py xapi_validator check_ip (22)]: Address/netmask is invalid: test
-[2022-10-25 19:31:02,727] ERROR [xapi_validator.py xapi_validator check_ip (22)]: Address/netmask is invalid: c://
-[2022-10-25 19:32:05,112] ERROR [xapi_validator.py xapi_validator check_ip (22)]: Address/netmask is invalid: c:\Projects\xIPray\addr.txt
-[2022-10-25 19:32:05,113] INFO [xapi_validator.py xapi_validator check_ip_or_path (32)]: Checking input ip or path. Is ip: False. Is path: True
-[2022-10-25 19:32:05,114] INFO [shodan_api.py xapi.shodan_api __init__ (17)]: Init shodan search
-[2022-10-25 19:32:50,580] ERROR [xapi_validator.py xapi_validator check_ip (22)]: Address/netmask is invalid: c:\Projects\xIPray\addr.txt
-[2022-10-25 19:32:50,581] INFO [xapi_validator.py xapi_validator check_ip_or_path (32)]: Checking input ip or path. Is ip: False. Is path: True
-[2022-10-25 19:32:50,582] INFO [shodan_api.py xapi.shodan_api __init__ (17)]: Init shodan search
-[2022-10-25 19:32:50,582] ERROR [xapi_validator.py xapi_validator check_ip (22)]: Address/netmask is invalid: c:\Projects\xIPray\addr.txt
-[2022-10-25 19:32:50,582] INFO [shodan_api.py xapi.shodan_api host_search (23)]: Start host shodan search
-[2022-10-25 19:32:56,398] ERROR [shodan_api.py xapi.shodan_api host_search (46)]: No information available for that IP.
-[2022-10-25 19:32:56,398] INFO [shodan_api.py xapi.shodan_api host_search (23)]: Start host shodan search
-[2022-10-25 19:33:01,224] ERROR [shodan_api.py xapi.shodan_api host_search (46)]: No information available for that IP.
-[2022-10-25 19:33:01,224] INFO [shodan_api.py xapi.shodan_api host_search (23)]: Start host shodan search
-[2022-10-25 19:33:02,571] INFO [shodan_api.py xapi.shodan_api host_search (23)]: Start host shodan search
-[2022-10-25 19:33:03,909] INFO [shodan_api.py xapi.shodan_api host_search (23)]: Start host shodan search
-[2022-10-25 19:33:05,252] ERROR [shodan_api.py xapi.shodan_api host_search (46)]: Invalid IP
-[2022-10-25 19:33:05,253] ERROR [xapi_validator.py xapi_validator check_ip (22)]: Address/netmask is invalid: test
-[2022-10-25 19:33:05,253] ERROR [xapi_validator.py xapi_validator check_ip (22)]: Address/netmask is invalid: c://
-[2022-10-25 19:33:05,253] INFO [shodan_api.py xapi.shodan_api host_search (23)]: Start host shodan search
-[2022-10-25 19:33:06,590] ERROR [shodan_api.py xapi.shodan_api host_search (46)]: No information available for that IP.
-[2022-10-25 19:33:06,590] INFO [shodan_api.py xapi.shodan_api host_search (23)]: Start host shodan search
-[2022-10-25 19:33:08,455] ERROR [shodan_api.py xapi.shodan_api host_search (46)]: No information available for that IP.
-[2022-10-25 19:33:08,455] INFO [shodan_api.py xapi.shodan_api host_search (23)]: Start host shodan search
-[2022-10-25 19:33:09,775] ERROR [shodan_api.py xapi.shodan_api host_search (46)]: No information available for that IP.
-[2022-10-25 19:33:37,684] ERROR [xapi_validator.py xapi_validator check_ip (22)]: Address/netmask is invalid: c:\Projects\xIPray\addr.txt
-[2022-10-25 19:33:37,684] INFO [xapi_validator.py xapi_validator check_ip_or_path (32)]: Checking input ip or path. Is ip: False. Is path: True
-[2022-10-25 19:33:37,686] INFO [shodan_api.py xapi.shodan_api __init__ (17)]: Init shodan search
-[2022-10-25 19:33:37,686] ERROR [xapi_validator.py xapi_validator check_ip (22)]: Address/netmask is invalid: c:\Projects\xIPray\addr.txt
-[2022-10-25 19:33:37,687] INFO [shodan_api.py xapi.shodan_api host_search (23)]: Start host shodan search
-[2022-10-25 19:33:38,118] ERROR [shodan_api.py xapi.shodan_api host_search (46)]: No information available for that IP.
-[2022-10-25 19:33:38,119] INFO [shodan_api.py xapi.shodan_api host_search (23)]: Start host shodan search
-[2022-10-25 19:33:40,099] ERROR [shodan_api.py xapi.shodan_api host_search (46)]: No information available for that IP.
-[2022-10-25 19:33:40,100] INFO [shodan_api.py xapi.shodan_api host_search (23)]: Start host shodan search
-[2022-10-25 19:33:41,441] INFO [shodan_api.py xapi.shodan_api host_search (23)]: Start host shodan search
-[2022-10-25 19:33:42,798] INFO [shodan_api.py xapi.shodan_api host_search (23)]: Start host shodan search
-[2022-10-25 19:33:44,198] ERROR [shodan_api.py xapi.shodan_api host_search (46)]: Invalid IP
-[2022-10-25 19:33:44,199] ERROR [xapi_validator.py xapi_validator check_ip (22)]: Address/netmask is invalid: test
-[2022-10-25 19:33:44,199] ERROR [xapi_validator.py xapi_validator check_ip (22)]: Address/netmask is invalid: c://
-[2022-10-25 19:33:44,199] INFO [shodan_api.py xapi.shodan_api host_search (23)]: Start host shodan search
-[2022-10-25 19:33:45,543] ERROR [shodan_api.py xapi.shodan_api host_search (46)]: No information available for that IP.
-[2022-10-25 19:33:45,543] INFO [shodan_api.py xapi.shodan_api host_search (23)]: Start host shodan search
-[2022-10-25 19:33:46,879] ERROR [shodan_api.py xapi.shodan_api host_search (46)]: No information available for that IP.
-[2022-10-25 19:33:46,880] INFO [shodan_api.py xapi.shodan_api host_search (23)]: Start host shodan search
-[2022-10-25 19:33:48,219] ERROR [shodan_api.py xapi.shodan_api host_search (46)]: No information available for that IP.
-[2022-10-25 19:33:48,219] INFO [shodan_api.py xapi.shodan_api host_search (23)]: Start host shodan search
-[2022-10-25 19:33:54,702] ERROR [xapi_validator.py xapi_validator check_ip (22)]: Address/netmask is invalid: 
-[2022-10-25 19:33:54,703] ERROR [xapi_validator.py xapi_validator check_ip (22)]: Address/netmask is invalid: test2
-[2022-10-25 19:36:30,624] ERROR [xapi_validator.py xapi_validator check_ip (22)]: Address/netmask is invalid: c:\Projects\xIPray\addr.txt
-[2022-10-25 19:36:30,624] INFO [xapi_validator.py xapi_validator check_ip_or_path (32)]: Checking input ip or path. Is ip: False. Is path: True
-[2022-10-25 19:36:30,626] INFO [shodan_api.py xapi.shodan_api __init__ (17)]: Init shodan search
-[2022-10-25 19:36:30,627] ERROR [xapi_validator.py xapi_validator check_ip (22)]: Address/netmask is invalid: c:\Projects\xIPray\addr.txt
-[2022-10-25 19:36:30,627] INFO [shodan_api.py xapi.shodan_api host_search (23)]: Start host shodan search
-[2022-10-25 19:36:31,077] ERROR [shodan_api.py xapi.shodan_api host_search (46)]: No information available for that IP.
-[2022-10-25 19:36:31,077] INFO [shodan_api.py xapi.shodan_api host_search (23)]: Start host shodan search
-[2022-10-25 19:36:34,204] ERROR [shodan_api.py xapi.shodan_api host_search (46)]: No information available for that IP.
-[2022-10-25 19:36:34,205] INFO [shodan_api.py xapi.shodan_api host_search (23)]: Start host shodan search
-[2022-10-25 19:36:36,115] INFO [shodan_api.py xapi.shodan_api host_search (23)]: Start host shodan search
-[2022-10-25 19:36:37,922] INFO [shodan_api.py xapi.shodan_api host_search (23)]: Start host shodan search
-[2022-10-25 19:36:50,484] ERROR [shodan_api.py xapi.shodan_api host_search (46)]: Invalid IP
-[2022-10-25 19:36:50,485] ERROR [xapi_validator.py xapi_validator check_ip (22)]: Address/netmask is invalid: test
-[2022-10-25 19:36:50,485] ERROR [xapi_validator.py xapi_validator check_ip (22)]: Address/netmask is invalid: c://
-[2022-10-25 19:36:50,485] INFO [shodan_api.py xapi.shodan_api host_search (23)]: Start host shodan search
-[2022-10-25 19:36:52,728] ERROR [shodan_api.py xapi.shodan_api host_search (46)]: No information available for that IP.
-[2022-10-25 19:36:52,728] INFO [shodan_api.py xapi.shodan_api host_search (23)]: Start host shodan search
-[2022-10-25 19:37:05,250] ERROR [shodan_api.py xapi.shodan_api host_search (46)]: No information available for that IP.
-[2022-10-25 19:37:05,250] INFO [shodan_api.py xapi.shodan_api host_search (23)]: Start host shodan search
-[2022-10-25 19:37:07,152] ERROR [shodan_api.py xapi.shodan_api host_search (46)]: No information available for that IP.
-[2022-10-25 19:37:07,153] ERROR [xapi_validator.py xapi_validator check_ip (22)]: Address/netmask is invalid: #185.126.239.251
-[2022-10-25 19:37:07,153] ERROR [xapi_validator.py xapi_validator check_ip (22)]: Address/netmask is invalid: 
-[2022-10-25 19:37:07,153] ERROR [xapi_validator.py xapi_validator check_ip (22)]: Address/netmask is invalid: test2
-[2022-10-25 19:37:07,154] INFO [shodan_api.py xapi.shodan_api host_search (23)]: Start host shodan search
+[2022-11-02 13:52:25,284] INFO [install.py __main__ <module> (11)]: Starting script installation
+[2022-11-02 13:53:25,120] INFO [install.py __main__ <module> (11)]: Starting script installation
+[2022-11-02 13:53:53,349] INFO [install.py __main__ <module> (11)]: Starting script installation
+[2022-11-02 14:12:06,979] INFO [install.py __main__ <module> (13)]: Starting script installation
+[2022-11-02 14:13:57,245] INFO [install.py __main__ <module> (13)]: Starting script installation
+[2022-11-02 14:16:51,813] INFO [install.py __main__ <module> (13)]: Starting script installation
+[2022-11-02 14:17:15,204] INFO [install.py __main__ <module> (13)]: Starting script installation
+[2022-11-02 14:18:34,074] INFO [install.py __main__ <module> (13)]: Starting script installation
+[2022-11-02 14:18:36,699] INFO [install.py __main__ <module> (13)]: Starting script installation
+[2022-11-02 14:23:50,663] INFO [install.py __main__ <module> (13)]: Starting script installation
+[2022-11-02 14:24:05,841] INFO [install.py __main__ <module> (13)]: Starting script installation
+[2022-11-02 14:24:53,153] INFO [install.py __main__ <module> (13)]: Starting script installation
+[2022-11-02 14:28:57,500] INFO [install.py __main__ <module> (13)]: Starting script installation
+[2022-11-02 14:31:36,468] INFO [install.py __main__ <module> (13)]: Starting script installation
+[2022-11-02 14:32:15,992] INFO [install.py __main__ <module> (13)]: Starting script installation
+[2022-11-02 14:32:36,203] INFO [install.py __main__ <module> (13)]: Starting script installation
+[2022-11-02 14:34:11,328] INFO [install.py __main__ <module> (13)]: Starting script installation

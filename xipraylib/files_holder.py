@@ -3,12 +3,14 @@ import configparser
 import logging
 from sys import platform
 from subprocess import check_output
-from xstdout import print_param
+from xipraylib.xstdout import print_param
 
-programm_name = 'xIPray'
+programm_name = 'xipray'
 
+install_path = '/'
 config_path = '/'
 log_path = '/'
+
 logger = logging.getLogger(__name__)
 
 def check_paths(paths: list):
@@ -19,17 +21,17 @@ def check_paths(paths: list):
 def check_path(path, is_print=True):
     if(os.path.isdir(path)):
         if(is_print):
-            print_param(f'{path} is a directory' ,type="error")
+            print_param(f'{path} is a directory' ,mode="error")
         logger.error(f'{path} is a directory')
         return False
     elif(os.path.isfile(path)):
         if(is_print):
-            print_param(f'{path} is exist', type='warning')
+            print_param(f'{path} is exist', mode='warning')
         logger.info(f'{path} is exist')
         return True
     else:
         if(is_print):
-            print_param(f'Invalid input', type='error')
+            print_param(f'Invalid input', mode='error')
         logger.error(f'Invalid input')
         return False
 
@@ -42,15 +44,16 @@ def __set_logger(path):
     logging.basicConfig(filename=path, level=logging.DEBUG)
 
 def set_os_paths():
-    global config_path, log_path
+    global config_path, log_path, install_path
     if platform == "linux" or platform == "linux2":
         # linux
         config_path = f'/etc/{programm_name}/'
-        log_path = f'/var/log/{programm_name}/'
+        log_path = f'/var/log/'
+        install_path = f'/etc/{programm_name}/'
         try:
             is_sudo()
         except Exception as ex:
-            print(ex)
+            print_param(ex, mode='error')
             exit(10)
         
     elif platform == "darwin":
@@ -60,8 +63,10 @@ def set_os_paths():
         # Windows
         config_path = os.path.expanduser("~/Documents") + f'/{programm_name}/'
         log_path = os.path.expanduser("~/Documents") + f'/{programm_name}/'
+        install_path = 'C:\\'
     check_paths([config_path, log_path])
     config_path = config_path + 'config.ini'
+    log_path = log_path + f'{programm_name}.log'
     __set_logger(log_path + f'{programm_name}.log')
 
 # Ниже можно использовать логер
@@ -93,7 +98,6 @@ def create_config(path: str = config_path):
     config = configparser.ConfigParser()
     config.add_section("XIP")
     config.set("XIP", "Shodan", "True")
-    config.set("XIP", "ZoomEy", "False")
     config.set("XIP", "Censys", "False")
         
         #config.set("XIP", "shodan-key", "None")
@@ -105,8 +109,6 @@ def create_config(path: str = config_path):
 
     config.add_section("Shodan")
     config.set("Shodan", "token", "None")
-    config.add_section("ZoomEy")
-    config.set("ZoomEy", "token", "None")
     config.add_section("Censys")
     config.set("Censys", "token", "None")
 
@@ -116,3 +118,11 @@ def create_config(path: str = config_path):
     
     with open(path, "w") as config_file:
         config.write(config_file)
+
+def install():
+    logger.info(f'Moving libraries to {install_path}')
+    os.system(f'cp -rv xipraylib/ {install_path}')
+    os.system(f'cp -v xipray {install_path}')
+    os.system(f'chmod +x {install_path}xipray')
+    os.system(f'rm /usr/bin/{programm_name}')
+    os.system(f'ln -s {install_path}xipray /usr/bin/{programm_name}')
