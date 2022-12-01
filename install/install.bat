@@ -7,3 +7,4 @@ pip3 install progress
 pip3 install configparser
 pip3 install columnar
 pip3 install shodan
+pip3 install censys

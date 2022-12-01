@@ -10,6 +10,7 @@ programm_name = 'xipray'
 install_path = '/'
 config_path = '/'
 log_path = '/'
+results_path = '/'
 
 logger = logging.getLogger(__name__)
 
@@ -50,6 +51,8 @@ def set_os_paths():
         config_path = f'/etc/{programm_name}/'
         log_path = f'/var/log/'
         install_path = f'/etc/{programm_name}/'
+        global results_path
+        results_path = f'/etc/{programm_name}/results.txt'
         try:
             is_sudo()
         except Exception as ex:
@@ -111,6 +114,7 @@ def create_config(path: str = config_path):
     config.set("Shodan", "token", "None")
     config.add_section("Censys")
     config.set("Censys", "token", "None")
+    config.set("Censys", "secret", "None")
 
     config.add_section('logger')
     config.set('logger', 'level', '20')

@@ -6,6 +6,7 @@ import shodan
 from xipraylib.xstdout import *
 from xipraylib.xapi_logger import get_logger
 from xipraylib.xapi_validator import check_ip
+from xipraylib.files_holder import results_path
 
 logger = get_logger(__name__)
 
@@ -15,7 +16,7 @@ class Shodan_api:
         shodan_key = config["Shodan"]["token"]
         self.api = shodan.Shodan(shodan_key)
         logger.info('Init shodan search')
-        self.write_path = './host_search_results.txt'
+        self.write_path = results_path
         if(os.path.isfile(self.write_path)):
             os.remove(self.write_path)
         self.popular_ports = [7, 20, 21, 22, 23, 25, 80, 443, 8080]
@@ -28,7 +29,12 @@ class Shodan_api:
                 json.dump(results, file) #, sort_keys = True
             
             logger.info('Sorting ports list')
-            ports_list = sorted(results['ports'], key=lambda x: x - 1000000 if x in self.popular_ports  else x)
+            ports_list = sorted(results['ports'], key=lambda x: x - 1000000 if x in self.popular_ports else x)
+
+            if('vulns' in results):
+                vulns = results['vulns']
+            else:
+                vulns = 'Not detected'
 
             print_host_banner(results['ip_str'] ,[
                     ('Hostnames', ''.join(results['hostnames'])),
@@ -36,7 +42,8 @@ class Shodan_api:
                     ('Country', results['country_name']),
                     ('City', results['city']),
                     ('Organization', results['org']),
-                    ('Ports', ports_list)
+                    ('Ports', ports_list),
+                    ('Vulnerabilities', vulns)
                     ])
             with open(self.write_path, 'a') as file:
                 print_host_banner(results['ip_str'] ,[
@@ -45,7 +52,8 @@ class Shodan_api:
                     ('Country', results['country_name']),
                     ('City', results['city']),
                     ('Organization', results['org']),
-                    ('Ports', ports_list)
+                    ('Ports', ports_list),
+                    ('Vulnerabilities', vulns)
                     ], file=file)
         except shodan.exception.APIError as ex:
             logger.error(ex)

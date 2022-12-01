@@ -1,4 +1,4 @@
-#!/usr/bin/python3.9
+#!/usr/bin/python3
 # -*- coding: utf-8 -*-
 
 import sys
@@ -19,7 +19,7 @@ set_subparser = subparsers.add_parser('set', help='Set parametr value')
 #ip_subparser = subparsers.add_parser('ip', help='Target ip addr')
 logger = get_logger(__name__)
 
-params_list = ['shodan', 'zoomey', 'censys', 'Shodan-Token', 'ZoomEy-Token', 'Censys-Token', 'loglevel', 'logpath']
+params_list = ['shodan', 'censys', 'Shodan-Token', 'ZoomEy-Token', 'Censys-Token', 'Censys-Secret', 'loglevel', 'logpath']
 
 def args_init():
     group = set_subparser.add_mutually_exclusive_group(required=True)
@@ -27,8 +27,8 @@ def args_init():
     group.add_argument('-censys', type=str, help='Enable or disable Censys search')
 
     group.add_argument('-shodanToken', help='Your\'s personal Shodan token')
-    group.add_argument('-zoomeyToken', help='Your\'s personal ZoomEy token')
-    group.add_argument('-censysToken', help='Your\'s personal Censys token')
+    group.add_argument('-censysToken', help='Your\'s personal Censys ID')
+    group.add_argument('-censysSecret', help='Your\'s personal Censys secret')
 
     group.add_argument('-loglevel', type=int, help='Log level. [10, 20, 30]')
     group.add_argument('-logpath', type=str, help='Path to log file')
@@ -51,7 +51,6 @@ def main():
     ip_search = False
     ip_file_search = False
     if(hasattr(args, 'shodan') and args.shodan):
-        print_param(args.shodan, mode='warning')
         config.set('XIP', 'Shodan', str(check_boolean(args.shodan)))
         update_config(config)
     if(hasattr(args, 'zoomey') and args.zoomey):
@@ -63,11 +62,12 @@ def main():
     if(hasattr(args, 'shodanToken') and args.shodanToken):
         config.set('Shodan', 'token', str(args.shodanToken))
         update_config(config)
-    if(hasattr(args, 'zoomeyToken') and args.zoomeyToken):
-        config.set('ZoomEy', 'token', str(args.zoomeyToken))
         update_config(config)
     if(hasattr(args, 'censysToken') and args.censysToken):
         config.set('Censys', 'token', str(args.censysToken))
+        update_config(config)
+    if(hasattr(args, 'censysSecret') and args.censysSecret):
+        config.set('Censys', 'secret', str(args.censysSecret))
         update_config(config)
     if(hasattr(args, 'loglevel') and args.loglevel):
         config.set('logger', 'level', str(args.loglevel))
@@ -94,14 +94,16 @@ def main():
             is_shodan = check_boolean(config['XIP']['shodan'])
             is_censys = check_boolean(config['XIP']['censys'])
             if(is_shodan):
+                start_service_message('Shodan')
                 shodan_api = Shodan_api()
                 if(check_ip(args.ip, is_print=False)):
                     shodan_api.host_search(args.ip)
                 elif(check_path(args.ip, is_print=False)):
                     shodan_api.multi_host_search(args.ip)
             if(is_censys):
+                start_service_message('Shodan')
                 logger.info('Starting Censys scan')
-            if(not (is_shodan and is_censys)):
+            if(not (is_shodan or is_censys)):
                 raise ValueError('Set true for at least one of this two searching methods (Shodan/Censys)')
         except KeyboardInterrupt:
             print_param("CTRL+C detected, terminating.", mode="error")
