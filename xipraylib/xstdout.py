@@ -18,6 +18,7 @@ def start_message(parameters: list):
 
 def start_service_message(message):
     current_time = datetime.datetime.now()
+    print('=' * line_count)
     print(f'{current_time.strftime("%Y/%m/%d %H:%M:%S")} Starting {message}')
     print('=' * line_count)
 

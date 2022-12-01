@@ -1,12 +1,12 @@
-import imp
 import json
 import os
-from xipraylib.files_holder import check_path, read_config
 import shodan
+
+from xipraylib.files_holder import read_config
 from xipraylib.xstdout import *
 from xipraylib.xapi_logger import get_logger
 from xipraylib.xapi_validator import check_ip
-from xipraylib.files_holder import results_path
+from xipraylib.files_holder import shodan_results_path
 
 logger = get_logger(__name__)
 
@@ -16,7 +16,7 @@ class Shodan_api:
         shodan_key = config["Shodan"]["token"]
         self.api = shodan.Shodan(shodan_key)
         logger.info('Init shodan search')
-        self.write_path = results_path
+        self.write_path = shodan_results_path
         if(os.path.isfile(self.write_path)):
             os.remove(self.write_path)
         self.popular_ports = [7, 20, 21, 22, 23, 25, 80, 443, 8080]
@@ -70,8 +70,3 @@ class Shodan_api:
                     self.host_search(clean_addr)
                 else:
                     print_param(f'Skip {clean_addr}', mode='error')
-
-    def search_vulnerable_cam_router(self):
-        res = self.api.search(query='WIRELESS+INTERNET+CAMERA city:Moscow')
-        print(res)
-        pass

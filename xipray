@@ -2,16 +2,13 @@
 # -*- coding: utf-8 -*-
 
 import sys
-import time
-import configparser
 import argparse
-import logging
-from ipaddress import ip_address
 from xipraylib.xapi_logger import get_logger
 from xipraylib.files_holder import *
 from xipraylib.xstdout import *
 from xipraylib.xapi_validator import *
 from xipraylib.xapi.shodan_api import Shodan_api
+from xipraylib.xapi.censys_api import Censys_api
 
 parser = argparse.ArgumentParser(description='White Hat hack tool. Enjoy.')
 subparsers = parser.add_subparsers(help='Script commands for change arguments')
@@ -101,8 +98,13 @@ def main():
                 elif(check_path(args.ip, is_print=False)):
                     shodan_api.multi_host_search(args.ip)
             if(is_censys):
-                start_service_message('Shodan')
-                logger.info('Starting Censys scan')
+                start_service_message('Censys')
+                censys_api = Censys_api()
+                if(check_ip(args.ip, is_print=False)):
+                    censys_api.host_search(args.ip)
+                elif(check_path(args.ip, is_print=False)):
+                    censys_api.multi_host_search(args.ip)
+                censys_api.host_search(args.ip)
             if(not (is_shodan or is_censys)):
                 raise ValueError('Set true for at least one of this two searching methods (Shodan/Censys)')
         except KeyboardInterrupt:
