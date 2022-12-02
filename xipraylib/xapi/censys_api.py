@@ -8,6 +8,7 @@ from xipraylib.xapi_logger import get_logger
 from xipraylib.files_holder import read_config
 from xipraylib.files_holder import censys_results_path
 from xipraylib.xstdout import *
+from xipraylib.xapi_validator import check_ip
 
 logger = get_logger(__name__)
 
@@ -17,6 +18,8 @@ class Censys_api:
         os.environ["CENSYS_API_ID"] = config['Censys']['token']
         os.environ["CENSYS_API_SECRET"] = config['Censys']['secret']
         self.write_path = censys_results_path
+        if(os.path.isfile(self.write_path)):
+            os.remove(self.write_path)
 
     def host_search(self, query):
         logger.info('Start host censys search')
@@ -28,28 +31,38 @@ class Censys_api:
             with open('test.json', 'w') as file:
                     json.dump(results, file)
             
-            tmp_stdout = sys.stdout
-            services = StringIO()
-            sys.stdout = services
-
-            print_param('Port', results[0]['services'][0]['port'], mode='subtype')
-
-            sys.stdout = tmp_stdout
-            result_string = services.getvalue()
+            services = ''
+            for i in range(0, len(results[0]['services'])):
+                port = print_param('Port', results[0]['services'][i]['port'], mode='subtype')
+                name = print_param('Service Name', results[0]['services'][i]['service_name'], mode='subtype')
+                transport = print_param('Transport', results[0]['services'][i]['transport_protocol'], mode='subtype')
+                services += '\n' + port + '\n' + name + '\n' + transport
 
             print_host_banner(results[0]['ip'] ,[
-                        ('Services', result_string),
-
-                        #('Port', results[0]['services'][0]['port']),
-                        #('Service Name', results[0]['services'][0]['service_name']),
-                        #('Transport', results[0]['services'][0]['transport_protocol']),
-
+                        ('Services', services),
                         ('Country', results[0]['location']['country']),
                         ('City', results[0]['location']['city']),
                         ('Last updated at', results[0]['last_updated_at']),])
+            
+            with open(self.write_path, 'a') as file:
+                print_host_banner(results[0]['ip'] ,[
+                        ('Services', services),
+                        ('Country', results[0]['location']['country']),
+                        ('City', results[0]['location']['city']),
+                        ('Last updated at', results[0]['last_updated_at']),
+                        ],file=file)
         except CensysAPIException as ex:
             logger.error(ex)
             print_param(ex, mode='error')
         except Exception as ex:
             logger.error('Error in shodan search module')
             print_param(ex, mode='error')
+            
+    def multi_host_search(self, path):
+        with open(path) as file:
+            for addr in file:
+                clean_addr = addr.strip()
+                if(check_ip(clean_addr)):
+                    self.host_search(clean_addr)
+                else:
+                    print_param(f'Skip {clean_addr}', mode='error')

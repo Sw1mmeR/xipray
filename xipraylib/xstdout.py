@@ -1,4 +1,5 @@
 import datetime
+from io import StringIO
 import sys
 import time
 #from columnar import columnar
@@ -47,7 +48,13 @@ def print_param(name, value = None, mode='info', file=sys.stdout, max_list_size=
         else:
             print('[+] {0:20}:{1}'.format(name, value), file=file)
     elif(mode == 'subtype'):
-        print('\t[++] {0:20}:{1}'.format(name, value), file=file)
+        out = StringIO()
+        tmp_stdout = sys.stdout
+        sys.stdout = out
+        print('   [++] {0:16}:{1}'.format(name, value), end='')
+        sys.stdout = tmp_stdout
+        result_string = out.getvalue()
+        return result_string
     elif(mode == 'error'):
         print(f'\033[31m[!] {name}\033[0m', file=file)
     elif(mode == 'warning'):
