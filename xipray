@@ -103,8 +103,8 @@ def main():
                 if(check_ip(args.ip, is_print=False)):
                     censys_api.host_search(args.ip)
                 elif(check_path(args.ip, is_print=False)):
-                    censys_api.multi_host_search(args.ip)
-                censys_api.host_search(args.ip)
+                    pass
+                    #censys_api.multi_host_search(args.ip)
             if(not (is_shodan or is_censys)):
                 raise ValueError('Set true for at least one of this two searching methods (Shodan/Censys)')
         except KeyboardInterrupt:

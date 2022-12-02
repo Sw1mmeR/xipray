@@ -19,3 +19,4 @@ if (__name__ == '__main__'):
         exit(10)
     set_os_paths()
     install()
+    logger.info('Installation finished')

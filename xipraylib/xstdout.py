@@ -46,6 +46,8 @@ def print_param(name, value = None, mode='info', file=sys.stdout, max_list_size=
                 print('[+] {0:20}:{1}'.format(name, value[0:max_list_size]))
         else:
             print('[+] {0:20}:{1}'.format(name, value), file=file)
+    elif(mode == 'subtype'):
+        print('\t[++] {0:20}:{1}'.format(name, value), file=file)
     elif(mode == 'error'):
         print(f'\033[31m[!] {name}\033[0m', file=file)
     elif(mode == 'warning'):
