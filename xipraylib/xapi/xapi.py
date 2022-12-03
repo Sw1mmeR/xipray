@@ -1,15 +1,19 @@
+import os
 from io import StringIO
 from xipraylib.xapi.shodan_api import Shodan_api
 from xipraylib.xapi.censys_api import Censys_api
 from xipraylib.xapi_validator import check_ip
 from xipraylib.xstdout import print_host_banner
+from xipraylib.files_holder import results_path
 
 class Xapi:
     def __init__(self, is_shodan, is_censys) -> None:
-        self.out = StringIO()
-        self.shodan = Shodan_api(out=self.out) if is_shodan else None
-        self.censys = Censys_api(out=self.out) if is_censys else None
+        self.shodan = Shodan_api() if is_shodan else None
+        self.censys = Censys_api() if is_censys else None
         self.results = []
+        self.write_path = results_path
+        if(os.path.isfile(self.write_path)):
+            os.remove(self.write_path)
 
     def host_search(self, value):
         if(check_ip(value, is_print=False)):
@@ -27,6 +31,6 @@ class Xapi:
             ip = self.shodan_result[0]
             self.results = self.shodan_result[1]
             self.results += self.censys_result[1]
-        #print(self.results)
         print_host_banner(ip, self.results)
-
+        with open(self.write_path, 'a') as file:
+            print_host_banner(ip, self.results, file=file)

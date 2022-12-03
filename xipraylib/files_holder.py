@@ -11,8 +11,6 @@ install_path = '/'
 config_path = '/'
 log_path = '/'
 results_path = '/'
-shodan_results_path = '/'
-censys_results_path = '/'
 
 logger = logging.getLogger(__name__)
 
@@ -47,15 +45,13 @@ def __set_logger(path):
     logging.basicConfig(filename=path, level=logging.DEBUG)
 
 def set_os_paths():
-    global config_path, log_path, install_path, results_path, shodan_results_path, censys_results_path
+    global config_path, log_path, install_path, results_path
     if platform == "linux" or platform == "linux2":
         # linux
         config_path = f'/etc/{programm_name}/'
         log_path = f'/var/log/'
         install_path = f'/etc/{programm_name}/'
-        results_path = f'/etc/{programm_name}/results'
-        shodan_results_path = results_path + f'/shodan.txt'
-        censys_results_path = results_path + f'/censys.txt'
+        results_path = f'/etc/{programm_name}/results.txt'
 
         try:
             is_sudo()
@@ -71,10 +67,8 @@ def set_os_paths():
         config_path = os.path.expanduser("~/Documents") + f'/{programm_name}/'
         log_path = os.path.expanduser("~/Documents") + f'/{programm_name}/'
         install_path = 'C:\\'
-        results_path = os.path.expanduser("~/Documents") + f'/{programm_name}/results'
-        shodan_results_path = results_path + '/shodan.txt'
-        censys_results_path = results_path + '/censys.txt'
-    check_paths([config_path, log_path, results_path])
+        results_path = os.path.expanduser("~/Documents") + f'/{programm_name}/results.txt'
+    check_paths([config_path, log_path])
     config_path = config_path + 'config.ini'
     log_path = log_path + f'{programm_name}.log'
     __set_logger(log_path + f'{programm_name}.log')

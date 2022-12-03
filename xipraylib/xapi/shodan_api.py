@@ -6,20 +6,15 @@ from xipraylib.files_holder import read_config
 from xipraylib.xstdout import *
 from xipraylib.xapi_logger import get_logger
 from xipraylib.xapi_validator import check_ip
-from xipraylib.files_holder import shodan_results_path
 
 logger = get_logger(__name__)
 
 class Shodan_api:
-    def __init__(self, out=sys.stdout) -> None:
+    def __init__(self) -> None:
         config = read_config()
         shodan_key = config["Shodan"]["token"]
         self.api = shodan.Shodan(shodan_key)
-        self.out = out
         logger.info('Init shodan search')
-        self.write_path = shodan_results_path
-        if(os.path.isfile(self.write_path)):
-            os.remove(self.write_path)
         self.popular_ports = [7, 20, 21, 22, 23, 25, 80, 443, 8080]
         
     def host_search(self, query):

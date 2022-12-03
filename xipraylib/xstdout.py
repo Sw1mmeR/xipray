@@ -90,7 +90,6 @@ def print_banner(ip, country, city, count = None):
 
 def print_host_banner(addr, params: list, file=sys.stdout):
     new_line_count = int((line_count - len(addr) - 1) / 2)
-    print(file=file)
     header = '{0}|{1}|{2}'.format('-' * new_line_count, addr, '-' * new_line_count)
     print(header, file=file)
     print_params(params, file=file)
