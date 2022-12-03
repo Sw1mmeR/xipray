@@ -13,10 +13,9 @@ from xipraylib.xapi.censys_api import Censys_api
 parser = argparse.ArgumentParser(description='White Hat hack tool. Enjoy.')
 subparsers = parser.add_subparsers(help='Script commands for change arguments')
 set_subparser = subparsers.add_parser('set', help='Set parametr value')
-#ip_subparser = subparsers.add_parser('ip', help='Target ip addr')
 logger = get_logger(__name__)
 
-params_list = ['shodan', 'censys', 'Shodan-Token', 'ZoomEy-Token', 'Censys-Token', 'Censys-Secret', 'loglevel', 'logpath']
+params_list = ['shodan', 'censys', 'Shodan-Token', 'Censys-Token', 'Censys-Secret', 'loglevel', 'logpath']
 
 def args_init():
     group = set_subparser.add_mutually_exclusive_group(required=True)
@@ -30,14 +29,8 @@ def args_init():
     group.add_argument('-loglevel', type=int, help='Log level. [10, 20, 30]')
     group.add_argument('-logpath', type=str, help='Path to log file')
 
-
     parser.add_argument('-ip', type=str, help='IP addr to search')
-    #ip_subparser.add_argument('-scan', '-s', action='store_true', help='Start scanning addr')
     parser.add_argument('-list', '-l', action='store_true', help='Show current configuration')
-    #parser.add_argument('set', help='Set parameter. Usage: -set [parameter] [value]')
-
-    #parser.add_argument('-location', '-l', type =str, help='Host location') #action='store_true'
-    #parser.add_argument('-filter', '-f', action='store_true', help='Use filters')
 
 def main():
     args_init()
