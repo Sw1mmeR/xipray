@@ -24,7 +24,6 @@ class Shodan_api:
             results = self.api.host(query)
             with open('test.json', 'w') as file:
                 json.dump(results, file) #, sort_keys = True
-            
             logger.info('Sorting ports list')
             ports_list = sorted(results['ports'], key=lambda x: x - 1000000 if x in self.popular_ports else x)
 

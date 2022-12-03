@@ -26,10 +26,8 @@ def start_service_message(message):
 def start_censys():
     pass
 
-def print_param(name, value = None, mode='info', file=sys.stdout, max_list_size=5):
+def print_param(name, value=None, mode='info', file=sys.stdout, max_list_size=5):
     from xipraylib.files_holder import results_path
-    #for row in data:
-        #print "".join(word.ljust(col_width) for word in row)
     if(mode == 'info' and value is not None):
         if(type(value) == list and file == sys.stdout):
             if(len(value) > max_list_size):

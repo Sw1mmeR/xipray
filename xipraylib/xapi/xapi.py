@@ -12,6 +12,8 @@ class Xapi:
         self.censys = Censys_api() if is_censys else None
         self.results = []
         self.write_path = results_path
+        self.shodan_result = None
+        self.censys_result = None
         if(os.path.isfile(self.write_path)):
             os.remove(self.write_path)
 
@@ -21,16 +23,19 @@ class Xapi:
                 self.shodan_result = self.shodan.host_search(value)
             if(self.censys is not None):
                 self.censys_result = self.censys.host_search(value)
-        if(self.shodan is None):
+        if(self.censys_result is None and self.shodan_result is None):
+            return
+        if(self.shodan is None and self.censys_result is not None):
             ip = self.censys_result[0]
             self.results = self.censys_result[1]
-        elif(self.censys is None):
+        elif(self.censys is None and self.shodan_result is not None):
             ip = self.shodan_result[0]
             self.results = self.shodan_result[1]
         else:
             ip = self.shodan_result[0]
             self.results = self.shodan_result[1]
-            self.results += self.censys_result[1]
+            if(self.censys_result is not None):
+                self.results += self.censys_result[1]
         print_host_banner(ip, self.results)
         with open(self.write_path, 'a') as file:
             print_host_banner(ip, self.results, file=file)

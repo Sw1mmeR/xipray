@@ -24,6 +24,9 @@ class Censys_api:
             censys_hosts = CensysHosts()
             censys_query = censys_hosts.search(query, per_page=5)
             results = censys_query()
+            if(len(results) == 0):
+                print_param('No information available for that IP.', mode='error')
+                return
             
             with open('test.json', 'w') as file:
                     json.dump(results, file)
@@ -54,11 +57,11 @@ class Censys_api:
                         ],file=self.out)
                         '''
             return self.out.getvalue()
-        except CensysAPIException as ex:
-            logger.error(ex)
-            print_param(ex, mode='error')
+        #except CensysAPIException as ex:
+            #logger.error(ex)
+            #print_param(ex, mode='error')
         except Exception as ex:
-            logger.error('Error in shodan search module')
+            logger.error('Error in censys search module')
             print_param(ex, mode='error')
             
     def multi_host_search(self, path):
