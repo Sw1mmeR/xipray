@@ -9,6 +9,7 @@ from xipraylib.xstdout import *
 from xipraylib.xapi_validator import *
 from xipraylib.xapi.shodan_api import Shodan_api
 from xipraylib.xapi.censys_api import Censys_api
+from xipraylib.xapi.xapi import Xapi
 
 parser = argparse.ArgumentParser(description='White Hat hack tool. Enjoy.')
 subparsers = parser.add_subparsers(help='Script commands for change arguments')
@@ -83,22 +84,16 @@ def main():
             start_message(parameters=params)
             is_shodan = check_boolean(config['XIP']['shodan'])
             is_censys = check_boolean(config['XIP']['censys'])
-            if(is_shodan):
-                start_service_message('Shodan')
-                shodan_api = Shodan_api()
-                if(check_ip(args.ip, is_print=False)):
-                    shodan_api.host_search(args.ip)
-                elif(check_path(args.ip, is_print=False)):
-                    shodan_api.multi_host_search(args.ip)
-            if(is_censys):
-                start_service_message('Censys')
-                censys_api = Censys_api()
-                if(check_ip(args.ip, is_print=False)):
-                    censys_api.host_search(args.ip)
-                elif(check_path(args.ip, is_print=False)):
-                    censys_api.multi_host_search(args.ip)
             if(not (is_shodan or is_censys)):
                 raise ValueError('Set true for at least one of this two searching methods (Shodan/Censys)')
+            
+            xapi = Xapi(is_shodan, is_censys)
+            xapi.host_search(args.ip)
+                #elif(check_path(args.ip, is_print=False)):
+                #shodan_api.multi_host_search(args.ip)
+                #elif(check_path(args.ip, is_print=False)):
+                #    censys_api.multi_host_search(args.ip)
+            
         except KeyboardInterrupt:
             print_param("CTRL+C detected, terminating.", mode="error")
             logger.info('CTRL+C detected')

@@ -13,16 +13,18 @@ from xipraylib.xapi_validator import check_ip
 logger = get_logger(__name__)
 
 class Censys_api:
-    def __init__(self) -> None:
+    def __init__(self, out=sys.stdout) -> None:
         config = read_config()
         os.environ["CENSYS_API_ID"] = config['Censys']['token']
         os.environ["CENSYS_API_SECRET"] = config['Censys']['secret']
         self.write_path = censys_results_path
+        self.out = out
         if(os.path.isfile(self.write_path)):
             os.remove(self.write_path)
 
     def host_search(self, query):
         logger.info('Start host censys search')
+        start_service_message('Censys')
         try:
             censys_hosts = CensysHosts()
             censys_query = censys_hosts.search(query, per_page=5)
@@ -37,20 +39,26 @@ class Censys_api:
                 name = print_param('Service Name', results[0]['services'][i]['service_name'], mode='subtype')
                 transport = print_param('Transport', results[0]['services'][i]['transport_protocol'], mode='subtype')
                 services += '\n' + port + '\n' + name + '\n' + transport
-
+            return (results[0]['ip'] ,[
+                ('Services', services),
+                ('Last updated at', results[0]['last_updated_at'])
+                ])
             print_host_banner(results[0]['ip'] ,[
                         ('Services', services),
-                        ('Country', results[0]['location']['country']),
-                        ('City', results[0]['location']['city']),
-                        ('Last updated at', results[0]['last_updated_at']),])
-            
+                        #('Country', results[0]['location']['country']),
+                        #('City', results[0]['location']['city']),
+                        ('Last updated at', results[0]['last_updated_at']),
+                        ],file=self.out)
+            '''
             with open(self.write_path, 'a') as file:
                 print_host_banner(results[0]['ip'] ,[
                         ('Services', services),
                         ('Country', results[0]['location']['country']),
                         ('City', results[0]['location']['city']),
                         ('Last updated at', results[0]['last_updated_at']),
-                        ],file=file)
+                        ],file=self.out)
+                        '''
+            return self.out.getvalue()
         except CensysAPIException as ex:
             logger.error(ex)
             print_param(ex, mode='error')
