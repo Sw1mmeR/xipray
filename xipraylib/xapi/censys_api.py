@@ -41,34 +41,9 @@ class Censys_api:
                 ('Services', services),
                 ('Last updated at', results[0]['last_updated_at'])
                 ])
-            print_host_banner(results[0]['ip'] ,[
-                        ('Services', services),
-                        #('Country', results[0]['location']['country']),
-                        #('City', results[0]['location']['city']),
-                        ('Last updated at', results[0]['last_updated_at']),
-                        ],file=self.out)
-            '''
-            with open(self.write_path, 'a') as file:
-                print_host_banner(results[0]['ip'] ,[
-                        ('Services', services),
-                        ('Country', results[0]['location']['country']),
-                        ('City', results[0]['location']['city']),
-                        ('Last updated at', results[0]['last_updated_at']),
-                        ],file=self.out)
-                        '''
-            return self.out.getvalue()
         #except CensysAPIException as ex:
             #logger.error(ex)
             #print_param(ex, mode='error')
         except Exception as ex:
             logger.error('Error in censys search module')
             print_param(ex, mode='error')
-            
-    def multi_host_search(self, path):
-        with open(path) as file:
-            for addr in file:
-                clean_addr = addr.strip()
-                if(check_ip(clean_addr)):
-                    self.host_search(clean_addr)
-                else:
-                    print_param(f'Skip {clean_addr}', mode='error')

@@ -87,7 +87,10 @@ def main():
             if(not (is_shodan or is_censys)):
                 raise ValueError('Set true for at least one of this two searching methods (Shodan/Censys)')
             xapi = Xapi(is_shodan, is_censys)
-            xapi.host_search(args.ip)
+            if(check_ip(args.ip, is_print=False)):
+                xapi.host_search(args.ip)
+            elif(check_path(args.ip, is_print=False)):
+                xapi.multi_host_search(args.ip)
         except KeyboardInterrupt:
             print_param("CTRL+C detected, terminating.", mode="error")
             logger.info('CTRL+C detected')

@@ -3,7 +3,7 @@ from io import StringIO
 from xipraylib.xapi.shodan_api import Shodan_api
 from xipraylib.xapi.censys_api import Censys_api
 from xipraylib.xapi_validator import check_ip
-from xipraylib.xstdout import print_host_banner
+from xipraylib.xstdout import print_host_banner, print_param
 from xipraylib.files_holder import results_path
 
 class Xapi:
@@ -32,10 +32,19 @@ class Xapi:
             ip = self.shodan_result[0]
             self.results = self.shodan_result[1]
         else:
-            ip = self.shodan_result[0]
-            self.results = self.shodan_result[1]
+            ip = self.shodan_result[0] if self.shodan_result is not None else self.censys_result[0]
+            self.results = self.shodan_result[1] if self.shodan_result is not None else self.censys_result[1]
             if(self.censys_result is not None):
                 self.results += self.censys_result[1]
         print_host_banner(ip, self.results)
         with open(self.write_path, 'a') as file:
             print_host_banner(ip, self.results, file=file)
+    
+    def multi_host_search(self, path):
+        with open(path) as file:
+            for addr in file:
+                clean_addr = addr.strip()
+                if(check_ip(clean_addr)):
+                    self.host_search(clean_addr)
+                else:
+                    print_param(f'Skip {clean_addr}', mode='error')
