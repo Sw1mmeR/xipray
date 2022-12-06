@@ -1,5 +1,4 @@
 import os
-from io import StringIO
 from xipraylib.xapi.shodan_api import Shodan_api
 from xipraylib.xapi.censys_api import Censys_api
 from xipraylib.xapi_validator import check_ip
