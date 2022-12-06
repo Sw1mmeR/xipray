@@ -1,7 +1,9 @@
 import datetime
-from io import StringIO
 import sys
-import time
+
+from io import StringIO
+from itertools import islice
+
 #from columnar import columnar
 
 
@@ -10,7 +12,7 @@ line_count = 72
 # Приветсвтенное сообщение/лого
 def start_message(parameters: list):
     print('=' * line_count)
-    print('xIPray v0.3 Alpha')
+    print('xIPray v1.0 Alpha')
     print('By KotFedot21 & Sw1mmeR')
     print_params(parameters=parameters)
     current_time = datetime.datetime.now()
@@ -29,11 +31,15 @@ def start_censys():
 def print_param(name, value=None, mode='info', file=sys.stdout, max_list_size=5):
     from xipraylib.files_holder import results_path
     if(mode == 'info' and value is not None):
-        if(type(value) == list and file == sys.stdout):
+        if(type(value) == list):
             if(len(value) > max_list_size):
                 try:
-                    try_parse = int(value[0])
-                    print('[+] {0:20}:{1}* More in {2}'.format(name, value[0:max_list_size], results_path))
+                    int(value[0])
+                    #split big list to small chunks
+                    value = iter(value)
+                    value = list(iter(lambda: tuple(islice(value, max_list_size)), ()))
+                    for i in range(0, len(value)):                    
+                        print('[+] {0:20}:{1}'.format(name, str(value[i])[1:-1]), file=file)
                 except ValueError as ex:
                     print('[+] {0:20}:{1}'.format(name, value[0]))
                     empty = ''
@@ -42,7 +48,7 @@ def print_param(name, value=None, mode='info', file=sys.stdout, max_list_size=5)
                     print('[*] {0:20}:{1}'.format(empty, f'More in {results_path}'))
                 #print('[+] {0:20}:{1}* More in {2}'.format(name, value[0:max_list_size], results_path))
             else:
-                print('[+] {0:20}:{1}'.format(name, value[0:max_list_size]))
+                print('[+] {0:20}:{1}'.format(name, value))
         else:
             print('[+] {0:20}:{1}'.format(name, value), file=file)
     elif(mode == 'subtype'):

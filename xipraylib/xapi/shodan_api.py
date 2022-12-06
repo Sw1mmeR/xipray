@@ -1,11 +1,9 @@
 import json
-import os
 import shodan
 
 from xipraylib.files_holder import read_config
 from xipraylib.xstdout import *
 from xipraylib.xapi_logger import get_logger
-from xipraylib.xapi_validator import check_ip
 
 logger = get_logger(__name__)
 
@@ -26,7 +24,6 @@ class Shodan_api:
                 json.dump(results, file) #, sort_keys = True
             logger.info('Sorting ports list')
             ports_list = sorted(results['ports'], key=lambda x: x - 1000000 if x in self.popular_ports else x)
-
             if('vulns' in results):
                 vulns = results['vulns']
             else:
