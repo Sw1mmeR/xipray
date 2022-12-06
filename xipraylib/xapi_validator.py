@@ -13,7 +13,7 @@ def check_ip(addr, is_print=True):
     try:
         ip = ipaddress.ip_address(addr)
         if(is_print):
-            print_param(f'{ip} is a correct IPv{ip.version} address {addr}', mode='warning')
+            print_param(f'{ip} is a correct IPv{ip.version} address', mode='warning')
         logger.debug(f'{ip} is a correct IP {ip.version} address')
         return True
     except ValueError:
