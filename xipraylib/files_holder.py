@@ -64,10 +64,10 @@ def set_os_paths():
         pass
     elif platform == "win32":
         # Windows
-        config_path = os.path.expanduser("~/Documents") + f'/{programm_name}/'
-        log_path = os.path.expanduser("~/Documents") + f'/{programm_name}/'
+        config_path = os.path.expanduser("~") + f'/{programm_name}/'
+        log_path = os.path.expanduser("~") + f'/{programm_name}/'
         install_path = 'C:\\'
-        results_path = os.path.expanduser("~/Documents") + f'/{programm_name}/results.txt'
+        results_path = os.path.expanduser("~") + f'/{programm_name}/results.txt'
     check_paths([config_path, log_path])
     config_path = config_path + 'config.ini'
     log_path = log_path + f'{programm_name}.log'
@@ -125,9 +125,12 @@ def create_config(path: str = config_path):
         config.write(config_file)
 
 def install():
-    logger.info(f'Moving libraries to {install_path}')
-    os.system(f'cp -rv xipraylib/ {install_path}')
-    os.system(f'cp -v xipray {install_path}')
-    os.system(f'chmod +x {install_path}xipray')
-    os.system(f'rm /usr/bin/{programm_name}')
-    os.system(f'ln -s {install_path}xipray /usr/bin/{programm_name}')
+    if(platform == 'win32'):
+        os.system('pyinstaller --noconfirm --onedir --console  "./xipray"')
+    else:
+        logger.info(f'Moving libraries to {install_path}')
+        os.system(f'cp -rv xipraylib/ {install_path}')
+        os.system(f'cp -v xipray {install_path}')
+        os.system(f'chmod +x {install_path}xipray')
+        os.system(f'rm /usr/bin/{programm_name}')
+        os.system(f'ln -s {install_path}xipray /usr/bin/{programm_name}')
