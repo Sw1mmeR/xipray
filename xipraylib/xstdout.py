@@ -35,17 +35,19 @@ def print_param(name, value=None, mode='info', file=sys.stdout, max_list_size=5)
             if(len(value) > max_list_size):
                 try:
                     int(value[0])
-                    #split big list to small chunks
-                    value = iter(value)
-                    value = list(iter(lambda: tuple(islice(value, max_list_size)), ()))
-                    for i in range(0, len(value)):                    
-                        print('[+] {0:20}:{1}'.format(name, str(value[i])[1:-1]), file=file)
                 except ValueError as ex:
-                    print('[+] {0:20}:{1}'.format(name, value[0]))
-                    empty = ''
-                    for i in range(1, max_list_size):
-                        print('[*] {0:20}:{1}'.format(empty, value[i]))
-                    print('[*] {0:20}:{1}'.format(empty, f'More in {results_path}'))
+                    max_list_size = 1
+                    #split big list to small chunks
+                value = iter(value)
+                value = list(iter(lambda: tuple(islice(value, max_list_size)), ()))
+                print('[+] {0:20}:{1}'.format(name, str(value[0])[1:-1]), file=file)
+                for i in range(1, len(value)):                    
+                    print('[*] {0:20}:{1}'.format('', str(value[i])), file=file)
+                    #print('[+] {0:20}:{1}'.format(name, value[0]))
+                    #empty = ''
+                    #for i in range(1, max_list_size):
+                        #print('[*] {0:20}:{1}'.format(empty, value[i]))
+                    #print('[*] {0:20}:{1}'.format(empty, f'More in {results_path}'))
                 #print('[+] {0:20}:{1}* More in {2}'.format(name, value[0:max_list_size], results_path))
             else:
                 print('[+] {0:20}:{1}'.format(name, value))
