@@ -1,13 +1,10 @@
-from io import StringIO
 import os
 import json
 
-from censys.common.exceptions import CensysAPIException
 from censys.search import CensysHosts
 from xipraylib.xapi_logger import get_logger
 from xipraylib.files_holder import read_config
 from xipraylib.xstdout import *
-from xipraylib.xapi_validator import check_ip
 
 logger = get_logger(__name__)
 

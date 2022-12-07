@@ -12,7 +12,7 @@ from xipraylib.xapi.censys_api import Censys_api
 from xipraylib.xapi.xapi import Xapi
 
 parser = argparse.ArgumentParser(description='White Hat hack tool. Enjoy.')
-subparsers = parser.add_subparsers(help='Script commands for change arguments')
+subparsers = parser.add_subparsers(help='Script commands for change parameters')
 set_subparser = subparsers.add_parser('set', help='Set parametr value')
 logger = get_logger(__name__)
 
@@ -31,6 +31,8 @@ def args_init():
     group.add_argument('-logpath', type=str, help='Path to log file')
 
     parser.add_argument('-ip', type=str, help='IP addr to search')
+    parser.add_argument('-output', '-o', action='store_true', help='Write search results to ../xipray/results.txt')
+
     parser.add_argument('-list', '-l', action='store_true', help='Show current configuration')
 
 def main():
@@ -39,8 +41,6 @@ def main():
     set_os_paths()
     config = read_config()
     execute = False
-    ip_search = False
-    ip_file_search = False
     if(hasattr(args, 'shodan') and args.shodan):
         config.set('XIP', 'Shodan', str(check_boolean(args.shodan)))
         update_config(config)
@@ -86,7 +86,7 @@ def main():
             is_censys = check_boolean(config['XIP']['censys'])
             if(not (is_shodan or is_censys)):
                 raise ValueError('Set true for at least one of this two searching methods (Shodan/Censys)')
-            xapi = Xapi(is_shodan, is_censys)
+            xapi = Xapi(is_shodan, is_censys, args.output)
             if(check_ip(args.ip, is_print=False)):
                 xapi.host_search(args.ip)
             elif(check_path(args.ip, is_print=False)):
