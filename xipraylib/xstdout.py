@@ -30,7 +30,6 @@ def start_censys():
     pass
 
 def print_param(name, value=None, mode='info', file=sys.stdout, max_list_size=5):
-    from xipraylib.files_holder import results_path
     if(mode == 'info' and value is not None):
         if(type(value) == list):
             if(len(value) > max_list_size):
@@ -46,7 +45,7 @@ def print_param(name, value=None, mode='info', file=sys.stdout, max_list_size=5)
                 for i in range(1, len(value)):                    
                     print('[*] {0:20}:{1}'.format('', str(value[i])).replace(')', '').replace('(', ''), file=file)
             else:
-                print('[+] {0:20}:{1}'.format(name, value))
+                print('[+] {0:20}:{1}'.format(name, value), file=file)
         else:
             print('[+] {0:20}:{1}'.format(name, value), file=file)
     elif(mode == 'subtype'):
