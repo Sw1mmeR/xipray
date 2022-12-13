@@ -42,7 +42,6 @@ def print_param(name, value=None, mode='info', file=sys.stdout, max_list_size=5)
                 value = list(iter(lambda: tuple(islice(value, max_list_size)), ()))
                 
                 print('[+] {0:20}:{1}'.format(name, str(value[0])).replace(')', '').replace('(', ''), file=file)
-                print('[+] {0:20}:{1}'.format(name, str(value[0]).strip()), file=file)
                 for i in range(1, len(value)):                    
                     print('[*] {0:20}:{1}'.format('', str(value[i]).strip()).replace(')', '').replace('(', ''), file=file)
             else:
