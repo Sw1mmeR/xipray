@@ -40,9 +40,9 @@ def print_param(name, value=None, mode='info', file=sys.stdout, max_list_size=5)
                     #split big list to small chunks
                 value = iter(value)
                 value = list(iter(lambda: tuple(islice(value, max_list_size)), ()))
-                print('[+] {0:20}:{1}'.format(name, str(value[0])[1:-1]), file=file)
+                print('[+] {0:20}:{1}'.format(name, str(value[0]).strip()), file=file)
                 for i in range(1, len(value)):                    
-                    print('[*] {0:20}:{1}'.format('', str(value[i])), file=file)
+                    print('[*] {0:20}:{1}'.format('', str(value[i]).strip()), file=file)
                     #print('[+] {0:20}:{1}'.format(name, value[0]))
                     #empty = ''
                     #for i in range(1, max_list_size):

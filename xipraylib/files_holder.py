@@ -126,7 +126,8 @@ def create_config(path: str = config_path):
 
 def install():
     if(platform == 'win32'):
-        os.system('pyinstaller --noconfirm --onedir --console  "./xipray"')
+        #os.system('pyinstaller --noconfirm --onedir --console  "./xipray"')
+        pass
     else:
         logger.info(f'Moving libraries to {install_path}')
         os.system(f'cp -rv xipraylib/ {install_path}')
