@@ -1,5 +1,6 @@
 import datetime
 import sys
+import re
 
 from io import StringIO
 from itertools import islice
@@ -29,7 +30,6 @@ def start_censys():
     pass
 
 def print_param(name, value=None, mode='info', file=sys.stdout, max_list_size=5):
-    from xipraylib.files_holder import results_path
     if(mode == 'info' and value is not None):
         if(type(value) == list):
             if(len(value) > max_list_size):
@@ -40,17 +40,13 @@ def print_param(name, value=None, mode='info', file=sys.stdout, max_list_size=5)
                     #split big list to small chunks
                 value = iter(value)
                 value = list(iter(lambda: tuple(islice(value, max_list_size)), ()))
+                
+                print('[+] {0:20}:{1}'.format(name, str(value[0])).replace(')', '').replace('(', ''), file=file)
                 print('[+] {0:20}:{1}'.format(name, str(value[0]).strip()), file=file)
                 for i in range(1, len(value)):                    
-                    print('[*] {0:20}:{1}'.format('', str(value[i]).strip()), file=file)
-                    #print('[+] {0:20}:{1}'.format(name, value[0]))
-                    #empty = ''
-                    #for i in range(1, max_list_size):
-                        #print('[*] {0:20}:{1}'.format(empty, value[i]))
-                    #print('[*] {0:20}:{1}'.format(empty, f'More in {results_path}'))
-                #print('[+] {0:20}:{1}* More in {2}'.format(name, value[0:max_list_size], results_path))
+                    print('[*] {0:20}:{1}'.format('', str(value[i]).strip()).replace(')', '').replace('(', ''), file=file)
             else:
-                print('[+] {0:20}:{1}'.format(name, value))
+                print('[+] {0:20}:{1}'.format(name, value), file=file)
         else:
             print('[+] {0:20}:{1}'.format(name, value), file=file)
     elif(mode == 'subtype'):
