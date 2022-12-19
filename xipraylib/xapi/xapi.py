@@ -47,6 +47,6 @@ class Xapi:
             for addr in file:
                 clean_addr = addr.strip()
                 if(check_ip(clean_addr)):
-                    self.host_search(clean_addr, self.is_file)
+                    self.host_search(clean_addr)
                 else:
                     print_param(f'Skip {clean_addr}', mode='error')

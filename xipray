@@ -90,6 +90,7 @@ def main():
             if(check_ip(args.ip, is_print=False)):
                 xapi.host_search(args.ip)
             elif(check_path(args.ip, is_print=False)):
+                print_param(args.ip)
                 xapi.multi_host_search(args.ip)
         except KeyboardInterrupt:
             print_param("CTRL+C detected, terminating.", mode="error")
