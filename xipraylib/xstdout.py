@@ -1,6 +1,5 @@
 import datetime
 import sys
-import re
 
 from io import StringIO
 from itertools import islice

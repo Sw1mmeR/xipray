@@ -2,7 +2,6 @@
 # -*- coding: utf-8 -*-
 import os
 
-from xipraylib.xapi_logger import get_logger
 from xipraylib.files_holder import is_sudo, set_os_paths, install
 from xipraylib.xstdout import print_param
 from sys import platform

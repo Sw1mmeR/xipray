@@ -7,8 +7,6 @@ from xipraylib.xapi_logger import get_logger
 from xipraylib.files_holder import *
 from xipraylib.xstdout import *
 from xipraylib.xapi_validator import *
-from xipraylib.xapi.shodan_api import Shodan_api
-from xipraylib.xapi.censys_api import Censys_api
 from xipraylib.xapi.xapi import Xapi
 
 parser = argparse.ArgumentParser(description='White Hat hack tool. Enjoy.')

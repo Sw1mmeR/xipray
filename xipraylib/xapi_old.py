@@ -1,4 +1,3 @@
-import requests
 from xipraylib.xapi_logger import get_logger
 import logging
 

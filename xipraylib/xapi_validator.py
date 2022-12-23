@@ -1,5 +1,4 @@
 import ipaddress
-from webbrowser import get
 from xipraylib.xapi_logger import get_logger
 from xipraylib.xstdout import *
 from xipraylib.files_holder import check_path
