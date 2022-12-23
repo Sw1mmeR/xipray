@@ -16,7 +16,7 @@ if(__name__ == '__main__'):
         if(platform == "linux" or platform == "linux2"):
             #logger.info('Linux system detected')
             is_sudo()
-            os.system('./install/install.sh')
+            os.system('. install/install.sh')
         elif(platform == 'win32'):
             #logger.info('Windows system detected')
             os.system('./install/install.bat')
