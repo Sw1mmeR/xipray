@@ -20,8 +20,8 @@ class Shodan_api:
         start_service_message('Shodan')
         try:
             results = self.api.host(query)
-            with open('test.json', 'w') as file:
-                json.dump(results, file) #, sort_keys = True
+            #with open('test.json', 'w') as file:
+                #json.dump(results, file) #, sort_keys = True
             logger.info('Sorting ports list')
             ports_list = sorted(results['ports'], key=lambda x: x - 1000000 if x in self.popular_ports else x)
             if('vulns' in results):
@@ -49,9 +49,9 @@ class Shodan_api:
         start_service_message('Shodan')
         try:
             results = self.api.dns.domain_info(query)
-            with open('test.json', 'w') as file:
-                json.dump(results, file) #, sort_keys = True
-            '''
+            #with open('test.json', 'w') as file:
+                #json.dump(results, file) #, sort_keys = True
+            
             logger.info('Sorting ports list')
             ports_list = sorted(results['ports'], key=lambda x: x - 1000000 if x in self.popular_ports else x)
             if('vulns' in results):
@@ -67,7 +67,6 @@ class Shodan_api:
                     ('Ports', ports_list),
                     ('Vulnerabilities', vulns)
                     ])
-            '''
         except shodan.exception.APIError as ex:
             logger.error(ex)
             print_param(ex, mode='error')

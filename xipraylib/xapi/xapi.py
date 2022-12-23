@@ -23,8 +23,6 @@ class Xapi:
                 self.shodan_result = self.shodan.host_search(value)
             if(self.censys is not None):
                 self.censys_result = self.censys.host_search(value)
-        else:
-            self.shodan.domain_search(value)
         if(self.censys_result is None and self.shodan_result is None):
             return
         if(self.shodan is None and self.censys_result is not None):
@@ -44,6 +42,41 @@ class Xapi:
         else:
             print_host_banner(ip, self.results)
     
+    def domain_search(self, value):
+        if(self.censys is not None):
+            self.censys_result = self.censys.domain_search(value)
+        if(self.shodan is not None):
+            self.shodan_result = self.shodan.domain_search(value)
+
+        if(self.censys_result is None and self.shodan_result is None):
+            return
+        
+        if(self.shodan is None and self.censys_result is not None):
+            ip = self.censys_result[0]
+            self.results = self.censys_result[1]
+        elif(self.censys is None and self.shodan_result is not None):
+            ip = self.shodan_result[0]
+            self.results = self.shodan_result[1]
+        else:
+            ip = self.shodan_result[0] if self.shodan_result is not None else self.censys_result[0]
+            self.results = self.shodan_result[1] if self.shodan_result is not None else self.censys_result[1]
+            if(self.censys_result is not None):
+                self.results += self.censys_result[1]
+        if (self.is_file):
+            with open(self.write_path, 'a') as file:
+                print_host_banner(ip, self.results, file=file)
+        else:
+            print_host_banner(ip, self.results)
+
+    def multi_domain_search(self, path):
+        with open(path) as file:
+            for addr in file:
+                clean_addr = addr.strip()
+                try:
+                    self.domain_search(clean_addr)
+                except Exception as ex:
+                    print_param(f'Skip {clean_addr}. Reason: {ex}', mode='error')  
+
     def multi_host_search(self, path):
         with open(path) as file:
             for addr in file:

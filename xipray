@@ -100,9 +100,9 @@ def main():
             if(is_domain):
                 if(check_path(args.domain, is_print=False)):
                     print_param(args.domain)
-                    xapi.multi_host_search(args.domain)
+                    xapi.multi_domain_search(args.domain)
                 else:
-                    xapi.host_search(args.ip)
+                    xapi.domain_search(args.domain)
             elif(check_ip(args.ip, is_print=False)):
                 xapi.host_search(args.ip)
             elif(check_path(args.ip, is_print=False)):
