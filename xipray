@@ -28,7 +28,10 @@ def args_init():
     group.add_argument('-loglevel', type=int, help='Log level. [10, 20, 30]')
     group.add_argument('-logpath', type=str, help='Path to log file')
 
-    parser.add_argument('-ip', type=str, help='IP addr to search')
+    search_pattern_group = parser.add_mutually_exclusive_group()
+    search_pattern_group.add_argument('-ip', type=str, help='IP addr to search')
+    search_pattern_group.add_argument('-domain', type=str, help='Domain name to search')
+
     parser.add_argument('-output', '-o', action='store_true', help='Write search results to ../xipray/results.txt')
 
     parser.add_argument('-list', '-l', action='store_true', help='Show current configuration')
@@ -39,6 +42,7 @@ def main():
     set_os_paths()
     config = read_config()
     execute = False
+    is_domain = False
     if(hasattr(args, 'shodan') and args.shodan):
         config.set('XIP', 'Shodan', str(check_boolean(args.shodan)))
         update_config(config)
@@ -76,16 +80,30 @@ def main():
             execute = True
         elif(check_path(args.ip)):
             execute = True
+    if(hasattr(args, 'domain') and args.domain):
+        execute = True
+        is_domain = True
     if(execute):
         try:
+            print(args.domain)
             params = read_params(config)
             start_message(parameters=params)
+
             is_shodan = check_boolean(config['XIP']['shodan'])
             is_censys = check_boolean(config['XIP']['censys'])
+                        
             if(not (is_shodan or is_censys)):
                 raise ValueError('Set true for at least one of this two searching methods (Shodan/Censys)')
+
             xapi = Xapi(is_shodan, is_censys, args.output)
-            if(check_ip(args.ip, is_print=False)):
+            
+            if(is_domain):
+                if(check_path(args.domain, is_print=False)):
+                    print_param(args.domain)
+                    xapi.multi_host_search(args.domain)
+                else:
+                    xapi.host_search(args.ip)
+            elif(check_ip(args.ip, is_print=False)):
                 xapi.host_search(args.ip)
             elif(check_path(args.ip, is_print=False)):
                 print_param(args.ip)

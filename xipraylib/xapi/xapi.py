@@ -23,6 +23,8 @@ class Xapi:
                 self.shodan_result = self.shodan.host_search(value)
             if(self.censys is not None):
                 self.censys_result = self.censys.host_search(value)
+        else:
+            self.shodan.domain_search(value)
         if(self.censys_result is None and self.shodan_result is None):
             return
         if(self.shodan is None and self.censys_result is not None):
